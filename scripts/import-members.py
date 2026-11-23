@@ -312,8 +312,13 @@ def download_one(source: str, stem: str) -> tuple[Path, bool]:
     suffix = Path(urlparse(source.split("/v1/", 1)[0]).path).suffix.lower() or ".jpg"
     target = ASSET_DIR / f"{stem}{suffix}"
     request = urllib.request.Request(resized_wix_url(source), headers={"User-Agent": "EmpowHER-member-import/1.0"})
-    with urllib.request.urlopen(request, timeout=30) as response, target.open("wb") as output:
-        output.write(response.read())
+    # Read fully, write to a hidden temporary file, then rename: an interrupted
+    # download must never leave a partial file that later runs treat as complete.
+    with urllib.request.urlopen(request, timeout=30) as response:
+        data = response.read()
+    partial = target.with_name(f".{target.name}.part")
+    partial.write_bytes(data)
+    partial.replace(target)
     return as_jpeg(target), True
 
 
