@@ -57,6 +57,8 @@ const plans = defineCollection({
     name: z.string().min(1),
     yearlyPrice: z.number().nonnegative(),
     summary: z.string().min(1),
+    description: z.string().min(1),
+    summaryBenefits: z.array(z.string().min(1)).min(1),
     benefits: z.array(z.string().min(1)).min(1),
     checkoutUrl: webUrl,
     order: z.number().int().positive(),

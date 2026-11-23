@@ -18,10 +18,10 @@ The public site is useful without an account. Until a later-phase replacement is
 - **Events (built)**: list and detail pages for all 72 captured coffee meetups, networking, business workshops and showcases, wellness and fitness activities, International Women's Day, R U OK? programs, community fundraisers, Dress 4 Success, galleries and recurring classes. Registration continues on each matching Wix event page.
 - **Blog**: post list, post pages, categories and tags represented in the capture.
 - **EmpowHER Women (built)**: directory and individual profiles for the six featured women, with public contact and business details from their current profiles.
-- **Magazine**: issue shelf and reading links for the existing digital issues.
+- **Magazine (built)**: issue shelf and reading links for the existing digital issues, plus the announced next issue date.
 - **Organisation**: About, committee/Our Team, speakers, sponsors, FAQ, contact, help hotline and partners/supporters.
 - **Programs and resources**: Dress 4 Success information and galleries, Coffee Meetup, Fitness Buddy, courses/workshops, Empowering Showcase, surveys and public campaign pages.
-- **Membership**: explain Bronze, Silver and Gold · Biz plans; Join links to Wix checkout.
+- **Membership (built)**: explain Bronze, Silver and Gold · Biz plans and every current benefit; Join links to Wix checkout.
 - **Navigation continuity**: unbuilt Phase 1 routes link to their matching current-site URL until migrated.
 
 ### Later: transactions and participation tools

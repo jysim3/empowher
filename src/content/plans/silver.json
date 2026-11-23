@@ -2,7 +2,9 @@
   "name": "Silver",
   "yearlyPrice": 50,
   "summary": "$25 welcome gift, 10% off events",
-  "benefits": ["Welcome coupon or gift, value $25", "Invitation to the WhatsApp chats", "Access to merchant list offer", "Up to 10% off workshops and events"],
+  "description": "Join the EmpowHER Sydney Inc. Silver Membership! Enjoy a $25 welcome coupon and WhatsApp Chats. Connect and empower each other. Apply now to enhance your journey!",
+  "summaryBenefits": ["Welcome coupon or gift, value $25", "Invitation to the WhatsApp chats", "Access to merchant list offer", "Up to 10% off workshops and events"],
+  "benefits": ["Welcome Coupon/Gift value $25", "Invitation to the WhatsApp Chats", "EmpowHER Newsletter", "Access special discussions", "Access to Merchant list offer", "Up to 10% Off Entry Fee to Workshop/Events T & C"],
   "checkoutUrl": "https://www.empowhersydney.com/pricing-plans/list",
   "order": 2
 }

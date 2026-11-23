@@ -12,14 +12,14 @@ Astro 7.4 static output, strict TypeScript and plain Astro components/CSS. Image
 /events/[slug]       Event detail with Wix registration link, built
 /women               EmpowHER Women directory, built
 /women/[slug]        Woman profile, built
-/membership          Membership with Wix checkout links, Phase 1
-/magazine            Magazine shelf, Phase 1
+/membership          Membership with Wix checkout links, built
+/magazine            Magazine shelf with Issuu reading links, built
 /blog                 Blog list, Phase 1
 /blog/[slug]          Blog post, Phase 1
 /about and others     Committee, speakers, sponsors, FAQ, contact and hotline, Phase 1
 ```
 
-The home and event routes are implemented. Future-route header links point to the corresponding live Wix page until the local route exists.
+The home, event, women, membership and magazine routes are implemented. Future-route header links point to the corresponding live Wix page until the local route exists.
 
 ## Content layout
 
@@ -29,7 +29,7 @@ This is a single-tenant site. Astro's loader-based content collections are defin
 |---|---|---|---|
 | `events` | Markdown | Title, optional start/end or date-TBD state, venue, locality, address, summary, registration URL, optional local/source image metadata and status; body description | Committee through the later editing screen |
 | `members` | Markdown | Name, role/business, optional portrait/banner, image sources and alt text, optional contact fields and links, home feature flag/order; body profile | Committee through the later editing screen |
-| `plans` | JSON | Name, numeric yearly price, summary, benefits, checkout URL, order | Committee through the later editing screen |
+| `plans` | JSON | Name, numeric yearly price, short home summary, full description, short home benefits, full membership-page benefits, checkout URL, order | Committee through the later editing screen |
 | `issues` | JSON | Title, issue number, optional confirmed month, cover, Issuu URL | Committee through the later editing screen |
 
 `src/data/site.ts` is a typed singleton for site-wide and home-page copy that is not a repeatable content item, including navigation, hero, highlights, cover lines and quote. All content is public and build-time only. Direct repository editing is the current path; the later editor will write these same files through external authentication and trigger a rebuild.
