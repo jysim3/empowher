@@ -1,0 +1,13 @@
+---
+import { getEntry, render } from 'astro:content'; import OrgPage from '../components/OrgPage.astro'; const page=await getEntry('pages','get-involved'); const volunteer=await getEntry('pages','volunteer-intro'); if(!page||!volunteer) throw new Error('Missing involvement content'); const {Content}=await render(page); const {Content:Volunteer}=await render(volunteer);
+---
+<OrgPage title={page.data.title} label="Join our community" lede={page.data.lede}>
+  <section class="section org-prose"><Content /></section>
+  <section class="section"><div class="involvement-list">
+    <article><div><h2>Join as a Volunteer</h2><p>Lend your time, talents, and enthusiasm to help run our community programs, events, and initiatives.</p></div><a class="text-link" href="https://www.empowhersydney.com/volunteer">Join us</a></article>
+    <article><div><h2>Become a Member</h2><p>Join our vibrant network to access networking events, business support, and peer mentorship.</p></div><a class="text-link" href="/membership">Join us</a></article>
+    <article><div><h2>Apply as a Keynote Speaker</h2><p>Share your professional insights, personal journey, or well-being strategies at our upcoming events.</p></div><a class="text-link" href="https://www.empowhersydney.com/keynotespeakerform">Apply now</a></article>
+    <article><div><h2>Become a Sponsor or Partner</h2><p>Collaborate with us to champion women's empowerment while aligning your organisation with meaningful community impact.</p></div><a class="text-link" href="/sponsors">Support us</a></article>
+  </div></section>
+  <section class="section org-prose"><h2>Volunteer with us</h2><Volunteer /><p><a class="text-link" href="https://www.empowhersydney.com/volunteer">Volunteer application</a></p></section>
+</OrgPage>

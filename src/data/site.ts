@@ -1,19 +1,19 @@
 export const siteSettings = {
   nav: [
-    { label: 'About us', href: 'https://www.empowhersydney.com/about-us' },
+    { label: 'About us', href: '/about' },
     { label: "What's on", href: '/events' },
     { label: 'EmpowHER Women', href: '/women' },
     { label: 'Magazine', href: '/magazine' },
     { label: 'Shop', href: 'https://www.empowhersydney.com/category/all-products' },
-    { label: 'Sponsors', href: 'https://www.empowhersydney.com/sponsors' },
+    { label: 'Sponsors', href: '/sponsors' },
     { label: 'Membership', href: '/membership' },
     { label: 'Blog', href: 'https://www.empowhersydney.com/blog' },
-    { label: 'Contact', href: 'https://www.empowhersydney.com/contactus' },
+    { label: 'Contact', href: '/contact' },
   ],
   joinUrl: '/membership',
   eventsUrl: '/events',
   magazineUrl: '/magazine',
-  aboutUrl: 'https://www.empowhersydney.com/about-us',
+  aboutUrl: '/about',
   hero: {
     eyebrow: "A women's network · Sydney Inc.",
     headline: 'Empowering women.',

@@ -1,0 +1,5 @@
+---
+import { getCollection } from 'astro:content'; import OrgPage from '../components/OrgPage.astro'; import PortraitDirectory from '../components/PortraitDirectory.astro';
+const people = (await getCollection('speakers')).sort((a,b)=>a.data.order-b.data.order);
+---
+<OrgPage title="Our Speakers" label="Connect · Engage · Thrive · Learn" lede="Meet speakers who share their experiences and insights to inspire and empower women."><section class="section"><PortraitDirectory people={people} biographies /></section></OrgPage>

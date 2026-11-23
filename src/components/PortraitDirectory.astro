@@ -1,0 +1,15 @@
+---
+import { Image } from 'astro:assets';
+import { render, type CollectionEntry } from 'astro:content';
+interface Person { data: { name: string; role?: string; title?: string; location?: string; photo?: ImageMetadata; photoAlt?: string }; }
+interface Props { people: Person[]; biographies?: boolean; }
+const { people, biographies = false } = Astro.props;
+const rendered = biographies ? await Promise.all(people.map(async (person) => ({ person, Content: (await render(person as CollectionEntry<'speakers'>)).Content }))) : people.map((person) => ({ person, Content: null }));
+---
+<div class:list={['portrait-directory', { 'with-biographies': biographies }]}>
+  {rendered.map(({ person, Content }) => <article class="portrait-entry">
+    <div class="portrait-heading"><figure>{person.data.photo ? <Image src={person.data.photo} alt={person.data.photoAlt ?? person.data.name} /> : <span class="member-portrait-missing" aria-hidden="true" />}</figure>
+      <div class="portrait-copy"><h2>{person.data.name}</h2><p class="label">{person.data.title ?? person.data.role}</p>{person.data.location && <p class="portrait-location">{person.data.location}</p>}</div></div>
+    {biographies && Content && <div class="org-prose speaker-bio"><Content /></div>}
+  </article>)}
+</div>

@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import OrgPage from '../components/OrgPage.astro';
+
+const services = (await getCollection('hotlines')).sort((a, b) => a.data.order - b.data.order);
+const tel = (phone: string) => phone.replace(/[^\d+]/g, '');
+---
+
+<OrgPage title="Help hotline" label="Confidential support" lede="For confidential information, counselling and support, we recommend below.">
+  <section class="section org-prose emergency">
+    <h2>If you are concerned for your safety or the safety of others</h2>
+    <p>Seek immediate assistance by calling <a href="tel:000">Triple Zero (000)</a>.</p>
+    <p>This is a free and confidential service that isn’t part of EmpowHER Sydney Inc. If you need an interpreter or translator, you can ask for one and the counsellor will make the arrangements.</p>
+  </section>
+  <section class="section">
+    <div class="service-list">
+      {services.map(({ data }) => (
+        <article>
+          <h2>{data.name}</h2>
+          <p>{data.phoneNumbers.map((phone, index) => <>{index > 0 ? ' or ' : ''}<a href={`tel:${tel(phone)}`}>{phone}</a></>)}</p>
+          {data.hours && <p>{data.hours}</p>}
+          {data.description && <p>{data.description}</p>}
+          {data.link && <a class="text-link" href={data.link}>Visit website</a>}
+        </article>
+      ))}
+    </div>
+  </section>
+</OrgPage>
