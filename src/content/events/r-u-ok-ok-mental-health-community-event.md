@@ -17,9 +17,9 @@ image: "../../assets/events/r-u-ok-ok-mental-health-community-event.jpg"
 
 Take a breath, connect, and learn in a safe space where *it’s okay to not be okay*. Whether you're a member or new to our community, join us for an inspiring evening dedicated to breaking mental health stigma.
 
-- **Date:** Thursday, 15 October 2026 | 6:30 PM – 8:30 PM
-- **Venue:** Soho House, 33 Des Voeux Rd W, Sheung Wan
-- **Highlights:** Mindful meditation, magic, burnout discussions, sharing sessions, and a lucky draw!
+- **Date:** Thursday, 15 October 2026 | 6:30 PM – 8:30 PM
+- **Venue:** Soho House, 33 Des Voeux Rd W, Sheung Wan
+- **Highlights:** Mindful meditation, magic, burnout discussions, sharing sessions, and a lucky draw!
 
 Limited seating—**full name** registration required.
 
@@ -27,15 +27,15 @@ Limited seating—**full name** registration required.
 
 **Featured Speakers & Host**
 
-- **CONNECT:** **Anniewho** — Founder of EmpowHER Sydney Inc. and domestic violence & mental health advocate recognised by the NSW Parliament (Australia).
-- **THRIVE:** **Teressa Siu** — Award-winning former TV journalist, international wellness speaker, educator, and mental health advocate.
-- **LEARN:** **Sonia Samtani** — Best-selling author, TEDx speaker, clinical hypnotherapist, NLP trainer, and qualified life coach.
+- **CONNECT:** **Anniewho** — Founder of EmpowHER Sydney Inc. and domestic violence & mental health advocate recognised by the NSW Parliament (Australia).
+- **THRIVE:** **Teressa Siu** — Award-winning former TV journalist, international wellness speaker, educator, and mental health advocate.
+- **LEARN:** **Sonia Samtani** — Best-selling author, TEDx speaker, clinical hypnotherapist, NLP trainer, and qualified life coach.
 
-** Special Guest Performance**
+**Special Guest Performance**
 
-- **ENGAGE:** **Matthew Owen** — Illusionist & sleight-of-hand artist providing mind-bending entertainment.
+- **ENGAGE:** **Matthew Owen** — Illusionist & sleight-of-hand artist providing mind-bending entertainment.
 
-**Supported by: **
+**Supported by:**
 
 Soho House
 

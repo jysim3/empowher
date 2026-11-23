@@ -187,6 +187,22 @@ blockquote cite { color: var(--color-primary); font-style: normal; }
 .involvement-list p { max-width: var(--measure); margin-top: var(--space-2); }
 .contact-details { max-width: var(--measure); }
 .contact-form-link { max-width: var(--measure); margin-top: var(--space-6); }
+.blog-categories { display: flex; flex-wrap: wrap; gap: var(--space-3) var(--space-6); margin-bottom: var(--space-8); }
+.blog-list { list-style: none; }
+.blog-list .event-copy > span { display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
+.blog-post-header { max-width: var(--page-max); }
+.blog-post-layout { display: grid; gap: var(--space-8); }
+.blog-cover { max-width: var(--measure); max-height: var(--blog-image-max); object-fit: contain; object-position: left center; }
+.blog-body { max-width: var(--measure); overflow-wrap: anywhere; }
+.blog-body > * + * { margin-top: var(--space-4); }
+.blog-body h2, .blog-body h3, .blog-body h4, .blog-body h5, .blog-body h6 { font-size: var(--font-size-title); line-height: var(--line-title); }
+.blog-body ul { list-style: disc; padding-left: var(--space-6); }
+.blog-body ol { padding-left: var(--space-6); }
+.blog-body a { border-bottom: var(--underline) solid var(--color-primary); font-weight: var(--weight-semibold); }
+.blog-body img { max-height: var(--blog-image-max); object-fit: contain; object-position: left center; }
+.blog-tags { max-width: var(--measure); display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-4); border-top: var(--rule) solid var(--color-line); padding-top: var(--space-4); color: var(--color-ink-muted); font-size: var(--font-size-small); }
+.blog-tags .label { color: var(--color-primary); }
+.blog-adjacent { max-width: var(--measure); display: flex; justify-content: space-between; align-items: flex-start; gap: var(--space-6); }
 
 @media (max-width: 74.999rem) {
   .desktop-nav { display: none; }
@@ -248,6 +264,7 @@ blockquote cite { color: var(--color-primary); font-style: normal; }
   .committee-intro { grid-template-columns: 1fr; gap: var(--space-6); }
   .involvement-list article { grid-template-columns: 1fr; align-items: start; }
   .involvement-list article > a { justify-self: start; }
+  .blog-adjacent { flex-direction: column; }
 }
 
 @media (prefers-reduced-motion: reduce) {

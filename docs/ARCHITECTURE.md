@@ -14,8 +14,9 @@ Astro 7.4 static output, strict TypeScript and plain Astro components/CSS. Image
 /women/[slug]        Woman profile, built
 /membership          Membership with Wix checkout links, built
 /magazine            Magazine shelf with Issuu reading links, built
-/blog                 Blog list, Phase 1
-/blog/[slug]          Blog post, Phase 1
+/blog                 Blog list, built
+/blog/[slug]          Blog post, built
+/blog/category/[slug] Blog category list, built
 /about and others     Organisation and resource pages, built
 ```
 

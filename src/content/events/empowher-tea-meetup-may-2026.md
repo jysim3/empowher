@@ -29,16 +29,16 @@ Location: Bloom Naturals 2/2 Kensington St, Kogarah NSW 2217
 
 **What to Expect:**
 
-- **Connect & Catch Up:** Meet new faces and reconnect with familiar friends.
-- **Share Your Passions:** Bring your favourite recipes to share, and showcase your cooking skills!
-- **Book Discussions:** Dive into inspiring reads and exchange recommendations.
+- **Connect & Catch Up:** Meet new faces and reconnect with familiar friends.
+- **Share Your Passions:** Bring your favourite recipes to share, and showcase your cooking skills!
+- **Book Discussions:** Dive into inspiring reads and exchange recommendations.
 
 Whether you're a seasoned professional, a budding entrepreneur, or simply looking to expand your circle, you are **warmly welcomed!**
 
 **Why Attend?**
 
-- **Inspiration & Support:** Gain new insights and encouragement from empowered women like you.
-- **Personal & Professional Growth:** Discover opportunities to learn and grow together.
+- **Inspiration & Support:** Gain new insights and encouragement from empowered women like you.
+- **Personal & Professional Growth:** Discover opportunities to learn and grow together.
 
 When women come together, **anything is possible!**
 

@@ -25,19 +25,19 @@ Don’t miss out on the festivities, activities, and valuable resources!
 
 **We can’t wait to see you there!**
 
-**Event:** Ask R U Ok? Is Okay Not To Be Okay!
+**Event:** Ask R U Ok? Is Okay Not To Be Okay!
 
-**Where:** Cafe Botanica
+**Where:** Cafe Botanica
 
 Shop 6, 42 Walker Street, Rhodes NSW 2138
 
-**Date: **Saturday 6th September 2025
+strong>Date:</strong> Saturday 6th September 2025
 
-**Time: **11:00am-1:00pm
+strong>Time:</strong> 11:00am-1:00pm
 
-**Host: **Diane Lyons
+strong>Host:</strong> Diane Lyons
 
-**Guest Speaker: **Cecile Sy
+strong>Guest Speaker:</strong> Cecile Sy
 
 **Registration**
 
@@ -51,7 +51,7 @@ Shop 6, 42 Walker Street, Rhodes NSW 2138
 
 11:00am-11:20am
 
-**Guest Speakers **
+**Guest Speakers**
 
 11:20am-11:50am
 
@@ -77,7 +77,7 @@ Shop 6, 42 Walker Street, Rhodes NSW 2138
 
 *Program are for reference only. Time and program may vary without notice.*
 
-*Refreshments s*ponsored by McDonald's Rhodes
+em>Refreshments s</em>ponsored by McDonald's Rhodes
 
 Opportunities to share personal stories and experiences and so much more
 

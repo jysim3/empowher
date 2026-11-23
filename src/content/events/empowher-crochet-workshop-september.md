@@ -23,13 +23,13 @@ Date: Thursday 27 August, Thursday 3 September 2026
 
 Time: 1:00 PM – 4:00 PM (Drop in anytime!)
 
-Location: [@](https://www.instagram.com/cafebotanica.au/)[cafebotanica.au](http://cafebotanica.au) Cafe Botanica
+Location: [@](https://www.instagram.com/cafebotanica.au/)[cafebotanica.au](http://cafebotanica.au) Cafe Botanica
 
 Shop 6, 42 Walker Street, Rhodes NSW 2138 Cost: Free (Volunteers needed!)
 
-**What to Expect: **
+**What to Expect:**
 
-**Expert Guidance: **Guided by EmpowHER Gold member’s very own Vincenza.
+strong>Expert Guidance:</strong> Guided by EmpowHER Gold member’s very own Vincenza.
 
 **All Skill Levels Welcome:** Complete beginners are highly encouraged!
 
@@ -41,4 +41,4 @@ Shop 6, 42 Walker Street, Rhodes NSW 2138 Cost: Free (Volunteers needed!)
 
 We're crafting heart cards to raise funds for women in our community. Check out the project we'll be making: Handmade Crochet Heart Card.
 
-Thank you to our supporter [@soulearththerapies](https://www.instagram.com/soulearththerapies/)
+Thank you to our supporter [@soulearththerapies](https://www.instagram.com/soulearththerapies/)

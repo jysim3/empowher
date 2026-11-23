@@ -31,11 +31,11 @@ Don’t miss out on the festivities, activities, and valuable resources!
 
 Shop 6, 42 Walker Street, Rhodes NSW 2138
 
-**Date: **Saturday 7th September 2024
+strong>Date:</strong> Saturday 7th September 2024
 
-**Time: **10:30am-1:30pm
+strong>Time:</strong> 10:30am-1:30pm
 
-**Host: **Edison & Bawani
+strong>Host:</strong> Edison & Bawani
 
 **Registration**
 

@@ -120,34 +120,73 @@ def comparable_title(line: str) -> str:
     return re.sub(r"\s+", " ", line).strip().casefold()
 
 
-def render_inline(nodes: list[object]) -> str:
+def _word(value: str) -> bool:
+    return bool(value) and (value.isalnum() or value == "_")
+
+
+def _styled(text: str, bold: bool, italic: bool, before: str, after: str, heading: bool = False) -> str:
+    leading = text[:len(text) - len(text.lstrip())]
+    trailing = text[len(text.rstrip()):]
+    core = text.strip()
+    if not core:
+        return text
+    if heading:
+        bold = False
+    html_style = _word(before[-1:] if before else "") or _word(after[:1] if after else "")
+    if html_style:
+        if italic:
+            core = f"<em>{core}</em>"
+        if bold:
+            core = f"<strong>{core}</strong>"
+    else:
+        if italic:
+            core = f"*{core}*"
+        if bold:
+            core = f"**{core}**"
+    return leading + core + trailing
+
+
+def render_inline(nodes: list[object], heading: bool = False) -> str:
+    runs: list[tuple[str, bool, bool, str | None]] = []
+    def collect(values: list[object]) -> None:
+        for node in values:
+            if not isinstance(node, dict):
+                continue
+            if node.get("type") != "TEXT":
+                nested = node.get("nodes", [])
+                if isinstance(nested, list):
+                    collect(nested)
+                continue
+            text_data = node.get("textData", {})
+            if not isinstance(text_data, dict):
+                continue
+            text = DECORATIVE_EMOJI.sub("", str(text_data.get("text", "")).replace("\xa0", " "))
+            decorations = text_data.get("decorations", [])
+            if not isinstance(decorations, list):
+                decorations = []
+            link = next((item for item in decorations if isinstance(item, dict) and item.get("type") == "LINK"), None)
+            url = None
+            if isinstance(link, dict):
+                link_data = link.get("linkData", {})
+                link_value = link_data.get("link", {}) if isinstance(link_data, dict) else {}
+                url = link_value.get("url") if isinstance(link_value, dict) else None
+            types = {item.get("type") for item in decorations if isinstance(item, dict)}
+            run = (text, "BOLD" in types, "ITALIC" in types, str(url) if url else None)
+            if runs and runs[-1][1:] == run[1:]:
+                previous = runs.pop()
+                run = (previous[0] + text, *run[1:])
+            runs.append(run)
+    collect(nodes)
     rendered: list[str] = []
-    for node in nodes:
-        if not isinstance(node, dict):
-            continue
-        if node.get("type") != "TEXT":
-            rendered.append(render_inline(node.get("nodes", [])))
-            continue
-        text_data = node.get("textData", {})
-        if not isinstance(text_data, dict):
-            continue
-        text = str(text_data.get("text", ""))
-        decorations = text_data.get("decorations", [])
-        if not isinstance(decorations, list):
-            decorations = []
-        link = next((item for item in decorations if isinstance(item, dict) and item.get("type") == "LINK"), None)
-        if isinstance(link, dict):
-            link_data = link.get("linkData", {})
-            link_value = link_data.get("link", {}) if isinstance(link_data, dict) else {}
-            url = link_value.get("url") if isinstance(link_value, dict) else None
-            if url:
-                text = f"[{text}]({url})"
-        types = {item.get("type") for item in decorations if isinstance(item, dict)}
-        if "ITALIC" in types and text.strip():
-            text = f"*{text}*"
-        if "BOLD" in types and text.strip():
-            text = f"**{text}**"
-        rendered.append(text)
+    for index, (text, bold, italic, url) in enumerate(runs):
+        before = next((run[0][-1:] for run in reversed(runs[:index]) if run[0]), "")
+        after = next((run[0][:1] for run in runs[index + 1:] if run[0]), "")
+        value = _styled(text, bold, italic, before, after, heading)
+        if url and value.strip():
+            leading = value[:len(value) - len(value.lstrip())]
+            trailing = value[len(value.rstrip()):]
+            value = f"{leading}[{value.strip()}]({url}){trailing}"
+        rendered.append(value)
     return "".join(rendered).strip()
 
 
@@ -179,7 +218,7 @@ def render_rich_node(node: dict[str, object]) -> str:
         heading_data = node.get("headingData", {})
         level = heading_data.get("level", 1) if isinstance(heading_data, dict) else 1
         markdown_level = max(2, min(6, int(level) + 1))
-        text = render_inline(children)
+        text = render_inline(children, heading=True)
         return f"{'#' * markdown_level} {text}" if text else ""
     if node_type in {"BULLETED_LIST", "ORDERED_LIST"}:
         lines: list[str] = []
@@ -269,6 +308,8 @@ def clean_body(raw: str, title: str) -> str:
             stripped = EMOJI_PREFIX.sub("", stripped)
         stripped = re.sub(r"^([-*])\s+[^\w\d#*\[]+\s*", r"\1 ", stripped)
         stripped = re.sub(r"\s{2,}", " ", DECORATIVE_EMOJI.sub("", stripped)).strip()
+        stripped = re.sub(r"^\*\*\*[ \t]+(.+?)\*\*(.*)$", r"**\1**\2", stripped)
+        stripped = re.sub(r"^\*{4}(.+?)\*{4}$", r"**\1**", stripped)
         output.append(stripped)
     first_content = next((index for index, line in enumerate(output) if line), None)
     if first_content is not None and comparable_title(output[first_content]) == comparable_title(title):
@@ -278,6 +319,12 @@ def clean_body(raw: str, title: str) -> str:
     while output and not output[-1]:
         output.pop()
     return "\n".join(output).strip()
+
+
+def plain_text(value: str) -> str:
+    value = re.sub(r"!?\[([^]]*)\]\([^)]*\)", r"\1", value)
+    value = re.sub(r"</?(?:strong|em)>", "", value)
+    return re.sub(r"[*_]+", "", value)
 
 
 def parse_event(path: Path, use_rich_content: bool = True) -> dict[str, object]:
@@ -297,7 +344,7 @@ def parse_event(path: Path, use_rich_content: bool = True) -> dict[str, object]:
     after_title = lines.index(next(line for line in lines if line.startswith("## "))) + 1
     values = [line.strip() for line in lines[after_title:] if line.strip()]
     pipe_index = values.index("|")
-    summary = re.sub(r"\s{2,}", " ", DECORATIVE_EMOJI.sub("", values[pipe_index + 2])).strip()
+    summary = re.sub(r"\s{2,}", " ", DECORATIVE_EMOJI.sub("", plain_text(values[pipe_index + 2]))).strip()
     status_line = values[pipe_index + 3]
     title_status = title_line.lower()
     if "cancelled" in title_status or "cancelled" in status_line.lower():
