@@ -480,12 +480,17 @@ def import_images(force: bool) -> int:
         target_dir = ASSETS / slug
         target_dir.mkdir(parents=True, exist_ok=True)
         content_path = CONTENT / "galleries" / f"{slug}.md"
-        text = re.sub(r"^    image: .*\n", "", content_path.read_text(encoding="utf-8"), flags=re.M)
+        current = content_path.read_text(encoding="utf-8")
+        # Which file each source photo was saved as last time. A numbered file is
+        # reused only for the same source, so a changed photo order cannot attach
+        # an old file to a different photo.
+        saved = dict(re.findall(r'^  - sourceImage: "([^"]+)"\n(?:    (?!image:)[^\n]*\n)*    image: "[^"]*/([^"/]+)"', current, flags=re.M))
+        text = re.sub(r"^    image: .*\n", "", current, flags=re.M)
         for number, photo in enumerate(photos, 1):
             original_ext = Path(urlparse(photo["source"].split("/v1/", 1)[0]).path).suffix.lower()
             extension = ".jpg" if Image or original_ext not in {".png", ".webp"} else original_ext
             destination = target_dir / f"{number:03d}{extension}"
-            if force or not destination.exists():
+            if force or not destination.exists() or saved.get(photo["source"]) != destination.name:
                 request = urllib.request.Request(wix_fit(photo["source"]))
                 temporary = destination.with_suffix(".download")
                 with opener.open(request, timeout=45) as response:
