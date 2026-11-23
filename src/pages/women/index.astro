@@ -1,0 +1,42 @@
+---
+import '@fontsource-variable/fraunces';
+import '@fontsource-variable/source-sans-3';
+import '@fontsource/oswald/500.css';
+import { getCollection } from 'astro:content';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import MemberGrid from '../../components/MemberGrid.astro';
+import '../../styles/tokens.css';
+import '../../styles/global.css';
+
+const members = (await getCollection('members')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Meet the women of EmpowHER Sydney and discover their journeys, businesses and work." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>EmpowHER Women · EmpowHER Sydney</title>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <header class="section page-intro stack">
+        <span class="eyebrow label">For every woman, every dream, every stage of life</span>
+        <h1>EmpowHER Women</h1>
+        <div class="women-intro">
+          <p>EmpowHER Women is for every woman — business owners, aspiring entrepreneurs, professionals, homemakers, and women simply finding their own path.</p>
+          <p>No matter where you are in life, you belong. We provide a supportive community to connect, grow, share, learn, inspire, and empower one another. Because empowerment isn't about titles or achievements — it's about confidence, connection, courage, and being authentically you.</p>
+          <p>Your journey. Your voice. Your future. Let's rise together.</p>
+        </div>
+      </header>
+      <section class="section" aria-label="Featured women">
+        <MemberGrid members={members} directory />
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>

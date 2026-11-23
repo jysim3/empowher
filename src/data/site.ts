@@ -2,7 +2,7 @@ export const siteSettings = {
   nav: [
     { label: 'About us', href: 'https://www.empowhersydney.com/about-us' },
     { label: "What's on", href: '/events' },
-    { label: 'EmpowHER Women', href: 'https://www.empowhersydney.com/empowher-women' },
+    { label: 'EmpowHER Women', href: '/women' },
     { label: 'Magazine', href: 'https://www.empowhersydney.com/empowher-magazine' },
     { label: 'Shop', href: 'https://www.empowhersydney.com/category/all-products' },
     { label: 'Sponsors', href: 'https://www.empowhersydney.com/sponsors' },
