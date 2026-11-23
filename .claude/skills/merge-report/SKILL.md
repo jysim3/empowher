@@ -238,14 +238,14 @@ The rules the script enforces, so you can tell when it is wrong:
 - **Escape every piece of collected text** before inserting it: `&` → `&amp;`, `<` →
   `&lt;`, `>` → `&gt;`, plus `"` → `&quot;` inside attributes; URL-encode paths used in
   `src` / `href`. Item titles, decision lines, and findings routinely contain all of them.
-- **Output location**: `~/Documents/empowher/dist/merge-reports/<item number>/<YYYYMMDD-HHMMSS>/index.html`
+- **Output location**: `~/.local/share/empowher/merge-reports/<item number>/<YYYYMMDD-HHMMSS>/index.html`
   — outside every checkout, so a deleted worktree never takes the only copy of a video
   with it. The item number alone finds the folder; the timestamp (`date +%Y%m%d-%H%M%S`
   at build start) sorts rounds oldest-first and stops a rebuild overwriting the round it
   replaces.
 - **Verify before handing over**: `ls -la` the report directory — the HTML and every
   file under `assets/` exist and are non-empty (a 0-byte mp4 plays nothing). Check every
-  `src=` and `href=` is `assets/…` or `https://…`. then run PATH=$HOME/.nvm/versions/node/v22.23.5/bin:$PATH npm run reports:index and publish with ~/Documents/reports/publish-page.sh empowher merge-reports ~/Documents/empowher/dist/merge-reports <shots-dir>
+  `src=` and `href=` is `assets/…` or `https://…`. then run PATH=$HOME/.nvm/versions/node/v22.23.5/bin:$PATH npm run reports:index and publish with ~/Documents/reports/publish-page.sh empowher merge-reports ~/.local/share/empowher/merge-reports <shots-dir>
 
 ## The terminal twin
 

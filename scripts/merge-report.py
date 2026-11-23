@@ -47,7 +47,7 @@ BOARD_URL = "https://github.com/jysim3/empowher/issues"
 BOARD_NAME = "jysim3/empowher issues"
 REVIEWER = "Codex"
 MERGE_STYLE = "squash merge"
-REPORTS_DIR = "~/Documents/empowher/dist/merge-reports"
+REPORTS_DIR = os.path.expanduser("~/.local/share/empowher/merge-reports")  # outside the checkout: astro build wipes dist/
 SERVED_URL_BASE = "https://pcsaur.tail7a7f12.ts.net/empowher/merge-reports/"
 TEMPLATE = pathlib.Path(__file__).resolve().parent.parent / ".claude" / "skills" / "merge-report" / "references" / "report-template.html"
 # Shell commands with {item} substituted. Each prints raw text to stdout.

@@ -10,15 +10,21 @@ const events = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/events' }),
   schema: ({ image }) => z.object({
     title: z.string().min(1),
-    start: isoDateTime,
+    start: isoDateTime.optional(),
     end: isoDateTime.optional(),
+    dateTbd: z.boolean().optional(),
     venue: z.string().min(1),
     locality: z.string().min(1),
+    address: z.string().min(1),
     summary: z.string().min(1),
     registrationUrl: webUrl,
     image: image().optional(),
+    sourceImage: webUrl.optional(),
+    imageAlt: z.string().min(1).optional(),
     status: z.enum(['scheduled', 'cancelled', 'sold-out', 'closed']).optional(),
-  }).strict(),
+  }).strict().refine((event) => Boolean(event.start) !== Boolean(event.dateTbd), {
+    message: 'An event needs either a start date or dateTbd: true',
+  }),
 });
 
 const members = defineCollection({

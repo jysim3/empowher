@@ -8,28 +8,27 @@ import { getCollection } from 'astro:content';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Cover from '../components/Cover.astro';
+import EventRow from '../components/EventRow.astro';
 import { siteSettings } from '../data/site';
 import coffee from '../assets/coffee.jpg';
 import '../styles/tokens.css';
 import '../styles/global.css';
 
 const allEvents = await getCollection('events');
-const events = allEvents
-  .sort((a, b) => b.data.start.valueOf() - a.data.start.valueOf())
-  .slice(0, 3)
-  .sort((a, b) => a.data.start.valueOf() - b.data.start.valueOf());
+const now = new Date();
+const upcomingEvents = allEvents
+  .filter(({ data }) => data.start && data.start >= now && data.status !== 'cancelled')
+  .sort((a, b) => a.data.start!.valueOf() - b.data.start!.valueOf());
+const events = (upcomingEvents.length > 0
+  ? upcomingEvents
+  : allEvents.filter(({ data }) => data.start).sort((a, b) => b.data.start!.valueOf() - a.data.start!.valueOf())
+).slice(0, 3);
 const members = (await getCollection('members'))
   .filter(({ data }) => data.featuredOnHome)
   .sort((a, b) => a.data.order - b.data.order);
 const plans = (await getCollection('plans')).sort((a, b) => a.data.order - b.data.order);
 const issues = (await getCollection('issues')).sort((a, b) => a.data.issueNumber - b.data.issueNumber);
 const { hero, highlights, quote, joinUrl, magazineUrl, eventsUrl, aboutUrl } = siteSettings;
-const eventDateParts = (start: Date, locality: string) => {
-  const timeZone = locality === 'Hong Kong' ? 'Asia/Hong_Kong' : 'Australia/Sydney';
-  const parts = new Intl.DateTimeFormat('en-AU', { day: '2-digit', month: 'short', weekday: 'short', timeZone }).formatToParts(start);
-  const value = (type: Intl.DateTimeFormatPartTypes) => parts.find((part) => part.type === type)?.value ?? '';
-  return { day: value('day'), meta: `${value('month')} · ${value('weekday')}` };
-};
 ---
 <!doctype html>
 <html lang="en">
@@ -57,7 +56,7 @@ const eventDateParts = (start: Date, locality: string) => {
       <section class="section" aria-labelledby="events-title">
         <div class="section-head"><h2 id="events-title">Events</h2><a class="text-link desktop-only" href={eventsUrl}>See all events</a></div>
         <div class="event-layout">
-          <ul class="events">{events.map(({ data }) => { const date = eventDateParts(data.start, data.locality); return <li><a href={data.registrationUrl}><time class="event-date" datetime={data.start.toISOString()}><span>{date.day}</span><small>{date.meta}</small></time><span class="event-copy"><strong>{data.title}</strong><span>{data.venue}, {data.locality}. {data.summary}</span></span><span class="arrow" aria-hidden="true">→</span></a></li>; })}</ul>
+          <ul class="events">{events.map((event) => <EventRow event={event} />)}</ul>
           <figure class="event-photo"><Image src={coffee} alt="A large group of women waving at an EmpowHER coffee meetup" widths={[540, 800]} sizes="(max-width: 899px) 100vw, 50vw" /><figcaption>Coffee Meetup at Cafe Botanica, Rhodes. Last Saturday every month.</figcaption></figure>
         </div>
         <a class="text-link phone-only" href={eventsUrl}>See all events</a>

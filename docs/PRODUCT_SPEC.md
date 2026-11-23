@@ -15,7 +15,7 @@ The public site is useful without an account. Until a later-phase replacement is
 ### Phase 1: pages first
 
 - **Home**: mission, current event links, EmpowHER Women, magazine, memberships and newsletter prompt.
-- **Events**: list and detail pages for the captured coffee meetups, networking, business workshops and showcases, wellness and fitness activities, International Women's Day, R U OK? programs, community fundraisers, Dress 4 Success, galleries and recurring classes. Registration continues on each matching Wix event page.
+- **Events (built)**: list and detail pages for all 72 captured coffee meetups, networking, business workshops and showcases, wellness and fitness activities, International Women's Day, R U OK? programs, community fundraisers, Dress 4 Success, galleries and recurring classes. Registration continues on each matching Wix event page.
 - **Blog**: post list, post pages, categories and tags represented in the capture.
 - **EmpowHER Women**: directory and individual profiles for featured women.
 - **Magazine**: issue shelf and reading links for the existing digital issues.
