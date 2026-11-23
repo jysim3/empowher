@@ -196,6 +196,43 @@ const posts = defineCollection({
     }).strict(),
 });
 
+const programs = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/programs" }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string().min(1),
+      label: z.string().min(1),
+      lede: z.string().min(1),
+      order: z.number().int().positive(),
+      sourceUrls: z.array(webUrl).min(1),
+      hero: image().optional(),
+      relatedEvents: z.array(z.string().min(1)).max(6).optional(),
+      gallery: z.string().min(1).optional(),
+      details: z.array(z.object({ label: z.string().min(1), value: z.string().min(1), url: z.string().min(1).optional() }).strict()).optional(),
+      structuredSections: z.array(z.object({
+        title: z.string().min(1),
+        items: z.array(z.object({ name: z.string().min(1), description: z.string().min(1), url: z.string().min(1).optional() }).strict()).min(1),
+      }).strict()).optional(),
+      schedule: z.array(z.object({ time: z.string().min(1), description: z.string().min(1) }).strict()).optional(),
+    }).strict(),
+});
+
+const galleries = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/galleries" }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string().min(1),
+      date: z.string().regex(/^\d{4}(?:-(?:0[1-9]|1[0-2]))?$/).optional(),
+      order: z.number().int().positive(),
+      sourceUrls: z.array(webUrl).min(1),
+      photos: z.array(z.object({
+        sourceImage: webUrl,
+        image: image().optional(),
+        alt: z.string().min(1),
+      }).strict()),
+    }).strict(),
+});
+
 export const collections = {
   events,
   members,
@@ -208,4 +245,6 @@ export const collections = {
   faq,
   hotlines,
   posts,
+  programs,
+  galleries,
 };

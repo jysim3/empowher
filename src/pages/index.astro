@@ -51,7 +51,7 @@ const { hero, highlights, quote, joinUrl, magazineUrl, eventsUrl, aboutUrl } = s
           <div class="actions"><a class="button" href={joinUrl}>Join now</a><a class="text-link" href={aboutUrl}>Learn more</a></div>
         </div>
         <Cover />
-        <ul class="highlights">{highlights.map(({ title, text }) => <li><strong>{title}</strong><span>{text}</span></li>)}</ul>
+        <ul class="highlights">{highlights.map(({ title, text, href }) => <li><strong>{title}</strong>{href ? <a href={href}>{text}</a> : <span>{text}</span>}</li>)}</ul>
       </section>
 
       <section class="section" aria-labelledby="events-title">

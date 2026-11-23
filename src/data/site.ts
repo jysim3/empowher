@@ -2,6 +2,7 @@ export const siteSettings = {
   nav: [
     { label: 'About us', href: '/about' },
     { label: "What's on", href: '/events' },
+    { label: 'Programmes', href: '/programs' },
     { label: 'EmpowHER Women', href: '/women' },
     { label: 'Magazine', href: '/magazine' },
     { label: 'Shop', href: 'https://www.empowhersydney.com/category/all-products' },
@@ -21,9 +22,9 @@ export const siteSettings = {
     lede: "At EmpowHER, we create a safe and supportive space where women can connect, grow, and achieve their dreams together. Join us and be part of a movement that's changing the world, one woman at a time.",
   },
   highlights: [
-    { title: 'Event highlight', text: 'Empowering Wellness Expo, a free day for the whole family' },
-    { title: 'Coffee meetup', text: 'Last Saturday every month, women only' },
-    { title: 'Membership', text: 'Bronze, Silver and Gold from $20 a year' },
+    { title: 'Event highlight', text: 'Empowering Wellness Expo, a free day for the whole family', href: '/programs/wellness-expo' },
+    { title: 'Coffee meetup', text: 'Last Saturday every month, women only', href: '/programs/coffee-meetup' },
+    { title: 'Membership', text: 'Bronze, Silver and Gold from $20 a year', href: '/membership' },
   ],
   cover: {
     tag: 'Women supporting women',

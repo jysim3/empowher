@@ -1,0 +1,15 @@
+---
+import { getCollection } from 'astro:content';
+import OrgPage from '../components/OrgPage.astro';
+import PhotoGallery from '../components/PhotoGallery.astro';
+const galleries = (await getCollection('galleries')).sort((a, b) => {
+  if (a.data.date && b.data.date) return b.data.date.localeCompare(a.data.date);
+  if (a.data.date) return -1;
+  if (b.data.date) return 1;
+  return a.data.order - b.data.order;
+});
+---
+<OrgPage title="Gallery" label="Our community" lede="Photos from EmpowHER Sydney programmes, workshops and events.">
+  <nav class="section gallery-nav" aria-label="Gallery sets">{galleries.map((gallery) => <a class="text-link" href={`#${gallery.id}`}>{gallery.data.title}</a>)}</nav>
+  {galleries.map((gallery, index) => <section class="section"><PhotoGallery id={gallery.id} title={gallery.data.title} photos={gallery.data.photos} eagerFirst={index === 0} /></section>)}
+</OrgPage>

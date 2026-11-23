@@ -18,9 +18,13 @@ Astro 7.4 static output, strict TypeScript and plain Astro components/CSS. Image
 /blog/[slug]          Blog post, built
 /blog/category/[slug] Blog category list, built
 /about and others     Organisation and resource pages, built
+/programs             Programme and campaign index, built
+/programs/[slug]      Programme detail and related photo set, built
+/gallery              Programme and event photo sets, built
+/404                   Static not-found help page, built
 ```
 
-The home, event, women, membership, magazine and organisation routes are implemented. Remaining future-route header links point to the corresponding live Wix page until the local route exists.
+All Phase 1 informational routes are implemented. Wix continues to host transactions, forms, accounts and the shop.
 
 ## Content layout
 
@@ -37,6 +41,8 @@ This is a single-tenant site. Astro's loader-based content collections are defin
 | `sponsors` | Markdown | Name, tier/order and optional logo/link metadata | Imported from the captured public site |
 | `faq` | Markdown | Question, category and order; body answer | Imported from the captured public site |
 | `hotlines` | Markdown | Service, description, phones, hours, link and order | Imported from the captured public site |
+| `programs` | Markdown | Title, label, lede, order, source URLs, optional hero/related event slugs/gallery; body long-form copy | Imported from the captured public site |
+| `galleries` | Markdown | Title, optional source-stated date, order, source URLs and photo source/local/alt metadata | Imported from the captured public site |
 
 `src/data/site.ts` is a typed singleton for site-wide and home-page copy that is not a repeatable content item, including navigation, hero, highlights, cover lines and quote. All content is public and build-time only. Direct repository editing is the current path; the later editor will write these same files through external authentication and trigger a rebuild.
 
@@ -52,7 +58,7 @@ PATH=$HOME/.nvm/versions/node/v22.23.5/bin:$PATH npm run preview
 PATH=$HOME/.nvm/versions/node/v22.23.5/bin:$PATH npm run validate
 ```
 
-`validate` checks types/content and then produces `dist/`. Deployment, domain changes, redirects and production Wix configuration belong to the owner.
+`validate` checks types/content, produces `dist/`, and runs `scripts/check-links.py` over every root-relative built `href` and `src`. Deployment, domain changes, redirects and production Wix configuration belong to the owner.
 
 ## Captured event import
 
@@ -61,5 +67,7 @@ PATH=$HOME/.nvm/versions/node/v22.23.5/bin:$PATH npm run validate
 ## Later-phase boundary
 
 Organisation content is imported with `python3 scripts/import-org.py content`. Its separate `images` command uses Wix fit endpoints and atomic downloads to attach local portraits and logos; the pages render before that networked step runs.
+
+Programme and gallery content is imported offline with `python3 scripts/import-programs.py content`; `audit` reports capture word and photo selection counts. Its separate `images` command fetches the selected whole photos and attaches them to gallery entries. Programme and gallery pages remain buildable before images are downloaded.
 
 Transactions stay behind outbound HTTPS links, so the static information architecture does not depend on a future provider. Replacing Wix requires separate decisions on identity, privacy, payments, refunds, migration and administration. GitHub Pages has no application server, so the committee editing screen will require an external authentication and Git-writing service.

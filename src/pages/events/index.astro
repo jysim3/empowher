@@ -52,7 +52,7 @@ for (const event of past) {
         )}
       </section>
       <section class="section event-archive" aria-labelledby="past-title">
-        <h2 id="past-title">Past events</h2>
+        <div class="section-head"><h2 id="past-title">Past events</h2><a class="text-link" href="/gallery">Browse the photo gallery</a></div>
         {[...pastByYear].map(([year, events]) => (
           <section class="event-year" aria-labelledby={`events-${year}`}>
             <h3 class="label" id={`events-${year}`}>{year}</h3>
