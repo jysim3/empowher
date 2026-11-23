@@ -10,7 +10,7 @@ import re
 from datetime import datetime
 
 # ---- CONFIG: fill at install time -------------------------------------------------
-ARCHIVE = "~/Documents/empowher/dist/merge-reports"
+ARCHIVE = os.path.expanduser("~/.local/share/empowher/merge-reports")
 TITLE = "EmpowHER merge reports"
 URL_PREFIX = "/empowher/merge-reports/"
 ITEM_URL_BASE = "https://github.com/jysim3/empowher/issues/"
