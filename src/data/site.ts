@@ -1,7 +1,7 @@
 export const siteSettings = {
   nav: [
     { label: 'About us', href: 'https://www.empowhersydney.com/about-us' },
-    { label: "What's on", href: 'https://www.empowhersydney.com/event-list' },
+    { label: "What's on", href: '/events' },
     { label: 'EmpowHER Women', href: 'https://www.empowhersydney.com/empowher-women' },
     { label: 'Magazine', href: 'https://www.empowhersydney.com/empowher-magazine' },
     { label: 'Shop', href: 'https://www.empowhersydney.com/category/all-products' },
@@ -11,7 +11,7 @@ export const siteSettings = {
     { label: 'Contact', href: 'https://www.empowhersydney.com/contactus' },
   ],
   joinUrl: 'https://www.empowhersydney.com/pricing-plans/list',
-  eventsUrl: 'https://www.empowhersydney.com/event-list',
+  eventsUrl: '/events',
   magazineUrl: 'https://www.empowhersydney.com/empowher-magazine',
   aboutUrl: 'https://www.empowhersydney.com/about-us',
   hero: {

@@ -1,0 +1,40 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  event: CollectionEntry<'events'>;
+}
+
+const { event } = Astro.props;
+const { data, id } = event;
+const timeZone = data.locality === 'Hong Kong' ? 'Asia/Hong_Kong' : 'Australia/Sydney';
+const dateParts = data.start
+  ? new Intl.DateTimeFormat('en-AU', {
+      day: '2-digit',
+      month: 'short',
+      weekday: 'short',
+      timeZone,
+    }).formatToParts(data.start)
+  : [];
+const value = (type: Intl.DateTimeFormatPartTypes) => dateParts.find((part) => part.type === type)?.value ?? '';
+const slug = id.replace(/\.md$/, '');
+---
+
+<li>
+  <a href={`/events/${slug}`}>
+    {data.start ? (
+      <time class="event-date" datetime={data.start.toISOString()}>
+        <span>{value('day')}</span>
+        <small>{value('month')} · {value('weekday')}</small>
+      </time>
+    ) : (
+      <span class="event-date event-date-tbd"><span>—</span><small>Date TBC</small></span>
+    )}
+    <span class="event-copy">
+      {data.status === 'cancelled' && <small class="label event-status">Cancelled</small>}
+      <strong>{data.title}</strong>
+      <span>{data.venue}, {data.locality}. {data.summary}</span>
+    </span>
+    <span class="arrow" aria-hidden="true">→</span>
+  </a>
+</li>
