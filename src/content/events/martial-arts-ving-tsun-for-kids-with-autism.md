@@ -27,7 +27,7 @@ Suit 1/8 Henley Rd, Homebush West NSW 2140, Australia
 
 **Date:** Saturday 6th June 2026
 
-**Time: **10am-12noon
+strong>Time:</strong> 10am-12noon
 
 RSVP is required.
 

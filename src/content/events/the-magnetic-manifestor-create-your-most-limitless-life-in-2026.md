@@ -29,13 +29,13 @@ In this transformative workshop, you will:
 - Consciously design 2026 to be your most aligned, abundant, and limitless year yet.
 - Depart with a clear, actionable manifestation blueprint that includes practical tools you can use right away.
 
-**Title:** The Magnetic Manifestor: Create Your Most LIMITLESS Life in 2026
+**Title:** The Magnetic Manifestor: Create Your Most LIMITLESS Life in 2026
 
-**Coach:** Mindset and Manifestation Coach - Pooja Jerajani
+**Coach:** Mindset and Manifestation Coach - Pooja Jerajani
 
-**Venue:** Cafe Botanica Shop 6, 42 Walker Street, NSW 2138
+**Venue:** Cafe Botanica Shop 6, 42 Walker Street, NSW 2138
 
-**Duration:** 90-120 minutes (includes a short break)
+**Duration:** 90-120 minutes (includes a short break)
 
 **Fee:** EmpowHER Silver & Gold member $59
 
@@ -51,7 +51,7 @@ Non Member $69
 
 Join us and experience a powerful shift in your manifestation journey!
 
-### **Who Should Attend**
+### Who Should Attend
 
 This workshop is ideal for anyone seeking to enhance their manifestation skills and create a more fulfilling life. Bring a friend along to make the experience even more special!
 

@@ -71,6 +71,7 @@
   --focus-offset: 3px;
   --cover-ratio: 3 / 4;
   --event-ratio: 3 / 2;
+  --blog-image-max: 50rem;
   --scrim-top-start: 0%;
   --scrim-top-end: 34%;
   --scrim-bottom-start: 58%;

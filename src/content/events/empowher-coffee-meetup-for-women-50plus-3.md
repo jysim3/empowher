@@ -27,22 +27,22 @@ Location: Cafe Botanica, Shop 6/42 Walker St, Rhodes NSW 2138
 
 **What to Expect:**
 
-*** Meet new friends: **Get to know other women aged 50+.
+strong>* Meet new friends:</strong> Get to know other women aged 50+.
 
-*** Connect over conversations:** We’ll get chatting over fun discussion prompts.
+**Connect over conversations:** We’ll get chatting over fun discussion prompts.
 
-*** Share your interests: **Tell us about your hobbies, passions, and the kinds of activities you'd like to see in the community.
+strong>* Share your interests:</strong> Tell us about your hobbies, passions, and the kinds of activities you'd like to see in the community.
 
 Whether you're coming on your own or with a friend, everyone is welcome.
 
 **Why Attend?**
 
-*** Expand your social circle:** Meet new people in a relaxed and welcoming setting.
+**Expand your social circle:** Meet new people in a relaxed and welcoming setting.
 
-*** Brighten your week: **Enjoy a cosy coffee and great conversation this winter.
+strong>* Brighten your week:</strong> Enjoy a cosy coffee and great conversation this winter.
 
 We'd love to see you there!
 
 **Cost:** Our meetup is free to attend. We simply ask that you purchase at least one drink to support our local café.
 
-**Parking: **Street Parking or Rhodes Central Entry to the car park is via Marquet Street, Rhodes with 3 hours of FREE parking.
+strong>Parking:</strong> Street Parking or Rhodes Central Entry to the car park is via Marquet Street, Rhodes with 3 hours of FREE parking.

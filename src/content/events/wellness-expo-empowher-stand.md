@@ -13,7 +13,7 @@ imageAlt: "Wellness Expo - EmpowHER Stand"
 image: "../../assets/events/wellness-expo-empowher-stand.jpg"
 ---
 
-## **Overview**
+## Overview
 
 Add more details about your event and include what people can expect if they attend.
 
@@ -51,19 +51,19 @@ Refreshing Natural Sprays
 
 Delicious Gluten-Free Cookies
 
-**Venue: **Writing NSW, Callan Park, Lilyfield NSW
+strong>Venue:</strong> Writing NSW, Callan Park, Lilyfield NSW
 
-**Visit: **EmpowHER Market Stand
+strong>Visit:</strong> EmpowHER Market Stand
 
-**Date: **Saturday 25 July 2026
+strong>Date:</strong> Saturday 25 July 2026
 
-**Time: **9:00 am to 4:00 pm
+strong>Time:</strong> 9:00 am to 4:00 pm
 
-**Free Entry** · Registration required.
+**Free Entry** · Registration required.
 
 Pre-order The 7 Wonder Shifts for $29.95 and receive a $30 Wellness Market voucher to use at participating stalls on the day.
 
-### **One Book. One Meaningful Day. Many Stories to Share.**
+### One Book. One Meaningful Day. Many Stories to Share.
 
 Every generation grew up in a different world.
 
@@ -81,7 +81,7 @@ Sometimes we look at another generation and wonder:
 
 *"Why do they value different things?"*
 
-*The 7 Wonder Shifts* invites us to slow down, listen with curiosity and understand the experiences that shaped each generation.
+*The 7 Wonder Shifts* invites us to slow down, listen with curiosity and understand the experiences that shaped each generation.
 
 This is not about deciding who is right or wrong.
 

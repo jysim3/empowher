@@ -7,7 +7,7 @@ export const siteSettings = {
     { label: 'Shop', href: 'https://www.empowhersydney.com/category/all-products' },
     { label: 'Sponsors', href: '/sponsors' },
     { label: 'Membership', href: '/membership' },
-    { label: 'Blog', href: 'https://www.empowhersydney.com/blog' },
+    { label: 'Blog', href: '/blog' },
     { label: 'Contact', href: '/contact' },
   ],
   joinUrl: '/membership',

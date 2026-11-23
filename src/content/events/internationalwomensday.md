@@ -13,7 +13,7 @@ imageAlt: "International Women’s Day 2026 Lunch | Sydney"
 image: "../../assets/events/internationalwomensday.jpg"
 ---
 
-### **Event Title: International Women’s Day 2026 Lunch | Sydney Give To Gain: Why Women Who Give Intentionally Rise Stronger**
+### Event Title: International Women’s Day 2026 Lunch | Sydney Give To Gain: Why Women Who Give Intentionally Rise Stronger
 
 **Proudly supported by EmpowHER Sydney Inc. non profit association for women.**
 
@@ -45,11 +45,11 @@ For women building careers and supporting families, this isn’t just another lu
 
 Level 1, 11 Jamison St, Sydney NSW 2000, Australia
 
-**Price: **$99 (Limited to 50 guests)
+**Price:** $99 (Limited to 50 guests)
 
-**Host by: **Wonderlab Wellness
+strong>Host by:</strong> Wonderlab Wellness
 
-**Guest Speaker **
+**Guest Speaker**
 
 **Dr. Leanne Elich**
 
@@ -105,7 +105,7 @@ Neurielle symbolises:
 - Energy over exhaustion
 - A simple reminder to: Pause. Regulate. Create more good days.
 
-### **Event Flow? **
+### Event Flow?
 
 ### 1. Welcome & framing around Give To Gain
 
@@ -127,7 +127,7 @@ The gap isn’t capability, it’s regulation.
 
 This International Women’s Day, step into Neurowellness, where clarity and momentum begin with a regulated nervous system.
 
-### **Who This Event For? **
+### Who This Event For?
 
 This experience is designed for:
 
