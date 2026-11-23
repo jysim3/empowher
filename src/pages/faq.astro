@@ -1,0 +1,27 @@
+---
+import { getCollection, render } from 'astro:content';
+import OrgPage from '../components/OrgPage.astro';
+
+const items = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.order);
+const rendered = await Promise.all(items.map(async (item) => ({
+  item,
+  Content: (await render(item)).Content,
+})));
+const categories = [...new Set(rendered.map(({ item }) => item.data.category))];
+---
+
+<OrgPage title="Frequently asked questions" label="Information">
+  {categories.map((category) => (
+    <section class="section faq-section">
+      <h2>{category}</h2>
+      <div class="details-list">
+        {rendered.filter(({ item }) => item.data.category === category).map(({ item, Content }) => (
+          <details>
+            <summary><span>{item.data.question}</span></summary>
+            <div class="org-prose"><Content /></div>
+          </details>
+        ))}
+      </div>
+    </section>
+  ))}
+</OrgPage>

@@ -1,0 +1,5 @@
+---
+import { Image } from 'astro:assets'; import { getCollection, getEntry, render } from 'astro:content'; import OrgPage from '../components/OrgPage.astro';
+const page=await getEntry('pages','sponsors-intro'); if(!page) throw new Error('Missing sponsors content'); const {Content}=await render(page); const sponsors=(await getCollection('sponsors')).sort((a,b)=>a.data.order-b.data.order);
+---
+<OrgPage title={page.data.title} label="Partner with us" lede={page.data.lede}><section class="section org-prose"><Content /></section><section class="section"><h2>EmpowHER sponsors and partners</h2><ul class="sponsor-grid">{sponsors.map(({data})=><li>{data.logo && <Image src={data.logo} alt={data.logoAlt} />}<span>{data.name}</span></li>)}</ul></section></OrgPage>

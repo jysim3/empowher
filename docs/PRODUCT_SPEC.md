@@ -19,7 +19,7 @@ The public site is useful without an account. Until a later-phase replacement is
 - **Blog**: post list, post pages, categories and tags represented in the capture.
 - **EmpowHER Women (built)**: directory and individual profiles for the six featured women, with public contact and business details from their current profiles.
 - **Magazine (built)**: issue shelf and reading links for the existing digital issues, plus the announced next issue date.
-- **Organisation**: About, committee/Our Team, speakers, sponsors, FAQ, contact, help hotline and partners/supporters.
+- **Organisation (built)**: About, committee/Our Team, speakers, sponsors, FAQ, contact, help hotline, women's health and get involved.
 - **Programs and resources**: Dress 4 Success information and galleries, Coffee Meetup, Fitness Buddy, courses/workshops, Empowering Showcase, surveys and public campaign pages.
 - **Membership (built)**: explain Bronze, Silver and Gold · Biz plans and every current benefit; Join links to Wix checkout.
 - **Navigation continuity**: unbuilt Phase 1 routes link to their matching current-site URL until migrated.
