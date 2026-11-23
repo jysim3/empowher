@@ -1,0 +1,86 @@
+---
+import '@fontsource-variable/fraunces';
+import '@fontsource-variable/source-sans-3';
+import '@fontsource/oswald/500.css';
+import { Image } from 'astro:assets';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import '../../styles/tokens.css';
+import '../../styles/global.css';
+
+export async function getStaticPaths() {
+  const events = await getCollection('events');
+  return events.map((event) => ({ params: { slug: event.id.replace(/\.md$/, '') }, props: { event } }));
+}
+
+interface Props {
+  event: CollectionEntry<'events'>;
+}
+
+const { event } = Astro.props;
+const { data } = event;
+const { Content } = await render(event);
+const now = new Date();
+const isOpen = Boolean(data.start && data.start >= now && (!data.status || data.status === 'scheduled'));
+const timeZone = data.locality === 'Hong Kong' ? 'Asia/Hong_Kong' : 'Australia/Sydney';
+const dateParts = data.start ? new Intl.DateTimeFormat('en-AU', {
+  day: '2-digit', month: 'short', weekday: 'long', year: 'numeric', timeZone,
+}).formatToParts(data.start) : [];
+const part = (type: Intl.DateTimeFormatPartTypes) => dateParts.find((item) => item.type === type)?.value ?? '';
+const time = data.start ? new Intl.DateTimeFormat('en-AU', {
+  hour: 'numeric', minute: '2-digit', timeZone,
+}).format(data.start) : '';
+const endTime = data.end ? new Intl.DateTimeFormat('en-AU', {
+  hour: 'numeric', minute: '2-digit', timeZone,
+}).format(data.end) : '';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={data.summary} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{data.title} · EmpowHER Sydney</title>
+  </head>
+  <body>
+    <Header primaryJoin={false} />
+    <main>
+      <article>
+        <header class="section event-hero">
+          <a class="text-link breadcrumb" href="/events">Events</a>
+          <div class="event-heading">
+            {data.start ? (
+              <time class="event-date event-date-large" datetime={data.start.toISOString()}>
+                <span>{part('day')}</span><small>{part('month')} · {part('weekday')}</small>
+              </time>
+            ) : <span class="event-date event-date-large event-date-tbd"><span>—</span><small>Date TBC</small></span>}
+            <div class="stack event-title">
+              <span class="eyebrow label">{data.status === 'cancelled' ? 'Cancelled' : data.start ? `${part('weekday')} · ${part('day')} ${part('month')} ${part('year')}` : 'Date to be confirmed'}</span>
+              <h1>{data.title}</h1>
+              <p class="lede">{data.summary}</p>
+            </div>
+          </div>
+        </header>
+
+        <div class:list={['section', 'event-detail-layout', { 'has-image': data.image }]}>
+          <aside class="event-facts stack" aria-label="Event details">
+            <div><span class="label">Time</span><p>{data.start ? <><time datetime={data.start.toISOString()}>{time}</time>{endTime && <>–<time datetime={data.end!.toISOString()}>{endTime}</time></>}</> : 'Date and time to be confirmed'}</p></div>
+            <div><span class="label">Place</span><p><strong>{data.venue}</strong><br />{data.address}</p></div>
+            {isOpen ? <a class="button" href={data.registrationUrl}>Register on the current site</a> : (
+              <div class="event-closed">
+                <p>{data.status === 'cancelled' ? 'Cancelled' : 'Registration is closed'}</p>
+                <a class="text-link" href="/events">See all events</a>
+              </div>
+            )}
+          </aside>
+          {data.image && <Image class="event-detail-image" src={data.image} alt={('imageAlt' in data && typeof data.imageAlt === 'string') ? data.imageAlt : ''} widths={[640, 960, 1280]} sizes="(max-width: 899px) 100vw, 65vw" />}
+          <div class="event-body"><Content /></div>
+        </div>
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>

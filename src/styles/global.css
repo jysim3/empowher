@@ -5,8 +5,8 @@ img { display: block; width: 100%; height: auto; object-fit: cover; }
 a { color: var(--color-link); text-decoration: none; }
 button, input { font: inherit; }
 a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible { outline: var(--underline) solid var(--color-primary); outline-offset: var(--focus-offset); }
-h1, h2, p, figure, blockquote { margin: 0; }
-h1, h2 { font-family: var(--font-display); font-weight: var(--weight-regular); text-wrap: balance; }
+h1, h2, h3, p, figure, blockquote { margin: 0; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: var(--weight-regular); text-wrap: balance; }
 h1 { font-size: var(--font-size-display); line-height: var(--line-display); letter-spacing: calc(var(--tracking-label) * -0.4); }
 h1 i { color: var(--color-primary); font-weight: var(--weight-regular); }
 h2 { font-size: var(--font-size-heading); line-height: var(--line-heading); }
@@ -54,6 +54,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .event-copy { display: flex; flex-direction: column; }
 .event-copy strong { font: var(--weight-semibold) var(--font-size-title)/var(--line-title) var(--font-display); }
 .event-copy span { color: var(--color-ink-muted); }
+.event-copy .event-status { color: var(--color-ink); }
 .event-photo img { aspect-ratio: var(--event-ratio); }
 .event-photo figcaption { padding-top: var(--space-2); font-style: italic; }
 .arrow { font-size: var(--font-size-title); }
@@ -84,6 +85,30 @@ blockquote cite { color: var(--color-primary); font-style: normal; }
 .site-footer .wordmark { grid-row: span 2; }
 .site-footer p { color: var(--color-ink-muted); font-size: var(--font-size-small); }
 .phone-only { display: none; }
+.page-intro { align-items: flex-start; }
+.page-intro h1, .event-title h1 { font-size: var(--font-size-heading); line-height: var(--line-heading); letter-spacing: 0; }
+.event-archive > h2 { margin-bottom: var(--space-8); }
+.event-year + .event-year { margin-top: var(--space-section); }
+.event-year > h3 { margin-bottom: var(--space-3); color: var(--color-primary); }
+.empty-state { border-top: var(--rule) solid var(--color-line-strong); padding-top: var(--space-4); }
+.event-date-tbd > span { color: var(--color-ink-muted); }
+.breadcrumb { display: inline-block; margin-bottom: var(--space-8); }
+.event-heading { display: grid; grid-template-columns: calc(var(--space-section) * 2.5) minmax(0, 1fr); gap: var(--space-8); align-items: start; }
+.event-date-large > span { font-size: var(--font-size-display); }
+.event-title { gap: var(--space-4); }
+.event-detail-layout { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: var(--space-section); align-items: start; }
+.event-facts { grid-column: 2; grid-row: 1 / span 2; }
+.event-detail-image { grid-column: 1; grid-row: 1; aspect-ratio: var(--event-ratio); }
+.event-body { grid-column: 1; grid-row: 1; max-width: var(--measure); }
+.event-detail-layout.has-image .event-body { grid-row: 2; }
+.event-body > * + * { margin-top: var(--space-4); }
+.event-body ul { list-style: disc; padding-left: var(--space-6); }
+.event-body ol { padding-left: var(--space-6); }
+.event-body a { border-bottom: var(--underline) solid var(--color-primary); font-weight: var(--weight-semibold); }
+.event-facts { border-top: var(--rule) solid var(--color-line-strong); padding-top: var(--space-4); }
+.event-facts .label { color: var(--color-primary); }
+.event-facts .button { align-self: flex-start; }
+.event-closed { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-3); }
 
 @media (max-width: 74.999rem) {
   .desktop-nav { display: none; }
@@ -123,6 +148,11 @@ blockquote cite { color: var(--color-primary); font-style: normal; }
   .summary { display: block; }
   .site-footer { grid-template-columns: 1fr; }
   .site-footer .wordmark { grid-row: auto; }
+  .event-archive > h2 { margin-bottom: var(--space-4); }
+  .event-heading { display: block; }
+  .event-date-large { display: none; }
+  .event-detail-layout { grid-template-columns: 1fr; }
+  .event-facts, .event-detail-image, .event-body, .event-detail-layout.has-image .event-body { grid-column: auto; grid-row: auto; }
 }
 
 @media (prefers-reduced-motion: reduce) {

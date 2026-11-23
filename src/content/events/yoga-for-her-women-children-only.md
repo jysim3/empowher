@@ -1,0 +1,50 @@
+---
+title: "Yoga For HER Women & Children only"
+start: "2024-07-06T19:00:00+10:00"
+end: "2024-07-06T23:00:00+10:00"
+venue: "Rhodes"
+locality: "Rhodes"
+address: "Shop 6/42 Walker St, Rhodes NSW 2138, Australia"
+summary: "Free outdoor Yoga class designed for women and children (above 3 years old). This unique gathering aims to bring together our community of women and children in a serene environment where you can bond over a yoga session."
+registrationUrl: "https://www.empowhersydney.com/event-details/yoga-for-her-women-children-only"
+status: "closed"
+sourceImage: "https://static.wixstatic.com/media/b14d62_3b872cfadc8c4130ad4c7f5d8b1d2e28~mv2.png"
+imageAlt: "Yoga For HER Women & Children only"
+image: "../../assets/events/yoga-for-her-women-children-only.jpg"
+---
+
+Join us for a special event of connection and empowerment at Cafe Botanica on Sunday, July 28 - 3 PM.
+
+Origami Yoga Studio, in partnership with EmpowHer and Cafe Botanica , is happy to host an exclusive free outdoor Yoga class designed for women and children (above 3 years old).
+
+This unique gathering aims to bring together our community of women and children in a serene environment where you can bond over a yoga session.
+
+Our experienced instructor Claudia, will guide you through gentle, family-friendly yoga practices that suit all skill levels.
+
+Space is limited, so be sure to reserve your spot today on our eventbrite link [https://www.eventbrite.com.au/.../empowher-yoga-her-women...](https://www.eventbrite.com.au/e/empowher-yoga-her-women-children-tickets-926530486627?fbclid=IwZXh0bgNhZW0CMTAAAR0klvy0VCNb8sooq2HAJmHtQUnMPO4HxgE2VhzUWbQ6miNjECPxzEqIbBw_aem_niQw6Zi6GoMA1ne44H87zg)
+
+Event Details:
+Date: Sunday, July 28
+Time: 3-4 PM
+Location: Cafe Botanica, Shop 6/42 Walker Street, Rhodes NSW 2138
+Who can attend: Women and children only
+What to bring: Mat is highly recommended, water to keep yourself hydrated, towel
+What to wear: Exercise gears (legging, shorts, t-shirt, sleeveless shirt, maybe a sweater it might be chilly)
+
+We look forward to seeing you there!Join us for a special event of connection and empowerment at Cafe Botanica on Sunday, July 28 - 3 PM.
+
+Origami Yoga Studio, in partnership with EmpowHer and Cafe Botanica , is happy to host an exclusive free outdoor Yoga class designed for women and children (above 3 years old).
+
+This unique gathering aims to bring together our community of women and children in a serene environment where you can bond over a yoga session.
+
+Our experienced instructor Claudia, will guide you through gentle, family-friendly yoga practices that suit all skill levels.
+
+Event Details:
+Date: Sunday, July 28
+Time: 3-4 PM
+Location: Cafe Botanica, Shop 6/42 Walker Street, Rhodes NSW 2138
+Who can attend: Women and children only
+What to bring: Mat is highly recommended, water to keep yourself hydrated, towel
+What to wear: Exercise gears (legging, shorts, t-shirt, sleeveless shirt, maybe a sweater it might be chilly)
+
+We look forward to seeing you there!

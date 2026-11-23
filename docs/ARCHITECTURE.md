@@ -8,8 +8,8 @@ Astro 7.4 static output, strict TypeScript and plain Astro components/CSS. Image
 
 ```text
 /                    Home page, built now
-/events              Event list, Phase 1
-/events/[slug]       Event detail with Wix registration link, Phase 1
+/events              Event list, built
+/events/[slug]       Event detail with Wix registration link, built
 /women               EmpowHER Women directory, Phase 1
 /women/[slug]        Woman profile, Phase 1
 /membership          Membership with Wix checkout links, Phase 1
@@ -19,7 +19,7 @@ Astro 7.4 static output, strict TypeScript and plain Astro components/CSS. Image
 /about and others     Committee, speakers, sponsors, FAQ, contact and hotline, Phase 1
 ```
 
-Only `/` is implemented now. Future-route header links point to the corresponding live Wix page until the local route exists.
+The home and event routes are implemented. Future-route header links point to the corresponding live Wix page until the local route exists.
 
 ## Content layout
 
@@ -27,7 +27,7 @@ This is a single-tenant site. Astro's loader-based content collections are defin
 
 | Collection | File type | Fields | Who edits |
 |---|---|---|---|
-| `events` | Markdown | Title, start/end, venue, locality, summary, registration URL, optional image/status; body description | Committee through the later editing screen |
+| `events` | Markdown | Title, optional start/end or date-TBD state, venue, locality, address, summary, registration URL, optional local/source image metadata and status; body description | Committee through the later editing screen |
 | `members` | Markdown | Name, role/business, portrait, optional links, home feature flag/order; body bio | Committee through the later editing screen |
 | `plans` | JSON | Name, numeric yearly price, summary, benefits, checkout URL, order | Committee through the later editing screen |
 | `issues` | JSON | Title, issue number, optional confirmed month, cover, Issuu URL | Committee through the later editing screen |
@@ -47,6 +47,10 @@ PATH=$HOME/.nvm/versions/node/v22.23.5/bin:$PATH npm run validate
 ```
 
 `validate` checks types/content and then produces `dist/`. Deployment, domain changes, redirects and production Wix configuration belong to the owner.
+
+## Captured event import
+
+`python3 scripts/import-events.py content` reproducibly imports all captured Wix event detail pages into the events collection without network access. Full descriptions come from the event's Ricos rich-content document in the git-ignored, machine-local `reference/original-site/html/` capture; individual events fall back to the shorter plain-text capture when no matching rich content is available. If the entire HTML capture directory is absent, the command warns clearly and preserves existing event bodies, including with `--force`. It otherwise preserves an existing Markdown body unless passed `--force`. `python3 scripts/import-events.py images` is the separate networked step: it downloads missing first images through Wix's 1200 by 1200 fit endpoint into `src/assets/events/`, converts posters to JPEG where supported, then attaches their relative paths to the event frontmatter. Both commands are idempotent.
 
 ## Later-phase boundary
 

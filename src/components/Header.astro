@@ -1,10 +1,15 @@
 ---
 import { siteSettings } from '../data/site';
 
+interface Props {
+  primaryJoin?: boolean;
+}
+
+const { primaryJoin = true } = Astro.props;
 const { nav, joinUrl } = siteSettings;
 ---
 <header class="site-header">
   <a class="wordmark" href="/" aria-label="EmpowHER Sydney home">Empow<i>HER</i></a>
-  <nav class="desktop-nav" aria-label="Main navigation">{nav.map(({ label, href }) => <a href={href}>{label}</a>)}<a class="join" href={joinUrl}>Join</a></nav>
-  <details class="phone-nav"><summary class="label">Menu</summary><nav aria-label="Mobile navigation">{nav.map(({ label, href }) => <a href={href}>{label}</a>)}<a class="join" href={joinUrl}>Join</a></nav></details>
+  <nav class="desktop-nav" aria-label="Main navigation">{nav.map(({ label, href }) => <a href={href}>{label}</a>)}<a class:list={{ join: primaryJoin }} href={joinUrl}>Join</a></nav>
+  <details class="phone-nav"><summary class="label">Menu</summary><nav aria-label="Mobile navigation">{nav.map(({ label, href }) => <a href={href}>{label}</a>)}<a class:list={{ join: primaryJoin }} href={joinUrl}>Join</a></nav></details>
 </header>
