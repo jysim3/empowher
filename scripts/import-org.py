@@ -506,6 +506,8 @@ def images_command(force: bool) -> None:
                     image.convert("RGB").save(target, "JPEG", quality=88, optimize=True)
             field = "image" if folder == "pages" else ("logo" if logo else "photo")
             relative = f"../../assets/org/{folder}/{target.name}"
+            # Drop any earlier copy of the field first, so a forced refresh never duplicates the key.
+            text = re.sub(rf"^{field}: .*\n", "", text, flags=re.M)
             text = re.sub(r"^---\n", f"---\n{field}: {yaml(relative)}\n", text, count=1)
             path.write_text(text, encoding="utf-8"); written += 1
     print(f"Downloaded {written} images.")
