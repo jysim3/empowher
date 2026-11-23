@@ -1,0 +1,23 @@
+{
+  "env": {
+    "DISABLE_TELEMETRY": "1"
+  },
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/tools/persona/adapters/tmux.py\" note --hook >/dev/null 2>&1 || true"
+          }
+        ]
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Bash(npx -y modern-web-guidance@latest *)"
+    ]
+  }
+}
+

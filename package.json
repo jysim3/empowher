@@ -11,6 +11,7 @@
     "preview": "astro preview",
     "check": "astro check",
     "validate": "astro check && astro build",
+    "reports:index": "python3 scripts/reports-index.py",
     "astro": "astro"
   },
   "dependencies": {

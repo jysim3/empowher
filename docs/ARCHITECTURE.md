@@ -39,11 +39,11 @@ This is a single-tenant site. Astro's loader-based content collections are defin
 Astro requires Node 22.23.4 or newer. Prefix every command with the pinned Node path:
 
 ```sh
-PATH=/home/jysim/.nvm/versions/node/v22.23.5/bin:$PATH npm run dev
-PATH=/home/jysim/.nvm/versions/node/v22.23.5/bin:$PATH npm run check
-PATH=/home/jysim/.nvm/versions/node/v22.23.5/bin:$PATH npm run build
-PATH=/home/jysim/.nvm/versions/node/v22.23.5/bin:$PATH npm run preview
-PATH=/home/jysim/.nvm/versions/node/v22.23.5/bin:$PATH npm run validate
+PATH=$HOME/.nvm/versions/node/v22.23.5/bin:$PATH npm run dev
+PATH=$HOME/.nvm/versions/node/v22.23.5/bin:$PATH npm run check
+PATH=$HOME/.nvm/versions/node/v22.23.5/bin:$PATH npm run build
+PATH=$HOME/.nvm/versions/node/v22.23.5/bin:$PATH npm run preview
+PATH=$HOME/.nvm/versions/node/v22.23.5/bin:$PATH npm run validate
 ```
 
 `validate` checks types/content and then produces `dist/`. Deployment, domain changes, redirects and production Wix configuration belong to the owner.
