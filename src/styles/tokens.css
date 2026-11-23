@@ -51,6 +51,7 @@
   --space-4: 16px;
   --space-gutter: 20px;
   --space-button-x: 22px;
+  --space-nav-gap: 22px;
   --space-6: 24px;
   --space-7: 28px;
   --space-8: 32px;
@@ -61,6 +62,7 @@
   --cover-offset: 12px;
   --issue-width: 190px;
   --member-phone-width: 132px;
+  --event-date-phone-width: 64px;
   --page-max: 1280px;
   --measure: 65ch;
   --target-min: 44px;
@@ -69,6 +71,13 @@
   --focus-offset: 3px;
   --cover-ratio: 3 / 4;
   --event-ratio: 3 / 2;
+  --scrim-top-start: 0%;
+  --scrim-top-end: 34%;
+  --scrim-bottom-start: 58%;
+  --scrim-bottom-end: 100%;
+  --layer-cover-scrim: 1;
+  --layer-cover-copy: 2;
+  --layer-menu: 5;
 
   --motion-fast: 175ms;
   --motion-medium: 410ms;
