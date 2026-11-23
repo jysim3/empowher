@@ -2,7 +2,9 @@
   "name": "Gold · Biz",
   "yearlyPrice": 280,
   "summary": "For women who own a business",
-  "benefits": ["Welcome EmpowHER gift set, value $50", "Feature on the EmpowHER Women bio page", "One free ¼-space ad in EmpowHER Magazine", "Up to 15% off workshops and events"],
+  "description": "Own a business? Join EmpowHER Sydney Inc. as a Gold Member! Enjoy exclusive benefits, networking opportunities, and special events. Empower yourself and connect with like-minded women!",
+  "summaryBenefits": ["Welcome EmpowHER gift set, value $50", "Feature on the EmpowHER Women bio page", "One free ¼-space ad in EmpowHER Magazine", "Up to 15% off workshops and events"],
+  "benefits": ["Welcome EmpowHER Gift Set Value $50", "EmpowHER WhatsApp Group", "Feature EmpowHER Women Bio Page", "EmpowHER Magazine-One Free 1/4 Space Ad.", "EmpowHER Newsletter", "EmpowHER Newsletter Feature x 1", "Promote Your Events on the EmpowHER Platform", "One Complimentary Advertisement Website Banner 1 month", "Up to 15% Off to Workshops/Events by EmpowHER T & C", "15% Off Banner Ads on the EmpowHER Website", "15% Off Banner Ads in the EmpowHER E-Magazine", "Published as Featured Gold Member on EmpowHER FB, IG", "Access to Merchant list offers"],
   "checkoutUrl": "https://www.empowhersydney.com/pricing-plans/list",
   "order": 3
 }

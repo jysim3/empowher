@@ -75,7 +75,7 @@ const { hero, highlights, quote, joinUrl, magazineUrl, eventsUrl, aboutUrl } = s
 
       <section class="section" aria-labelledby="membership-title">
         <div class="section-head"><h2 id="membership-title">Join the growing community</h2><span class="eyebrow label">Membership, yearly</span></div>
-        <ul class="plans">{plans.map(({ data }) => <li><a href={data.checkoutUrl} aria-label={`Join ${data.name} membership`}><strong>{data.name}</strong><span class="price">${data.yearlyPrice} <small>a year</small></span><span class="summary">{data.summary}</span><ul>{data.benefits.map((benefit) => <li>{benefit}</li>)}</ul></a></li>)}</ul>
+        <ul class="plans">{plans.map(({ data }) => <li><a href="/membership" aria-label={`Learn about ${data.name} membership`}><strong>{data.name}</strong><span class="price">${data.yearlyPrice} <small>a year</small></span><span class="summary">{data.summary}</span><ul>{data.summaryBenefits.map((benefit) => <li>{benefit}</li>)}</ul></a></li>)}</ul>
       </section>
 
       <section class="section closing" aria-label="Quote and newsletter">

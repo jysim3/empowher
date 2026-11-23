@@ -130,6 +130,23 @@ blockquote cite { color: var(--color-primary); font-style: normal; }
 .event-facts .label { color: var(--color-primary); }
 .event-facts .button { align-self: flex-start; }
 .event-closed { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-3); }
+.membership-plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-6); }
+.membership-plan { border-top: var(--rule) solid var(--color-line-strong); padding-top: var(--space-4); display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-4); }
+.membership-plan > .label { color: var(--color-primary); }
+.membership-price { font: var(--weight-regular) var(--font-size-price)/var(--line-display) var(--font-display); }
+.membership-price small { color: var(--color-ink-muted); font: var(--weight-regular) var(--font-size-small)/var(--line-body) var(--font-body); }
+.membership-benefits { width: 100%; }
+.membership-benefits li { border-top: var(--rule) solid var(--color-line); padding: var(--space-2) 0; }
+.membership-action { margin-top: var(--space-section); display: flex; justify-content: center; }
+.issue-list-title { margin-bottom: var(--space-8); }
+.magazine-issues { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-section); }
+.issue-cover { width: calc(100% - var(--cover-offset)); }
+.issue-cover > img { aspect-ratio: var(--cover-ratio); box-shadow: var(--cover-offset) var(--cover-offset) 0 var(--color-cover-shadow); }
+.issue-cover figcaption { padding-top: var(--space-6); display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-2); }
+.issue-cover h3 { font-size: var(--font-size-title); line-height: var(--line-title); }
+.issue-cover time { color: var(--color-ink-muted); }
+.coming-soon { margin-top: var(--space-section); border-top: var(--rule) solid var(--color-line-strong); padding-top: var(--space-4); display: flex; flex-wrap: wrap; gap: var(--space-3); }
+.coming-soon .label { color: var(--color-primary); }
 
 @media (max-width: 74.999rem) {
   .desktop-nav { display: none; }
@@ -179,6 +196,7 @@ blockquote cite { color: var(--color-primary); font-style: normal; }
   .event-date-large { display: none; }
   .event-detail-layout { grid-template-columns: 1fr; }
   .event-facts, .event-detail-image, .event-body, .event-detail-layout.has-image .event-body { grid-column: auto; grid-row: auto; }
+  .membership-plans, .magazine-issues { grid-template-columns: 1fr; gap: var(--space-section); }
 }
 
 @media (prefers-reduced-motion: reduce) {
