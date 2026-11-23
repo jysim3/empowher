@@ -20,9 +20,11 @@ The public site is useful without an account. Until a later-phase replacement is
 - **EmpowHER Women (built)**: directory and individual profiles for the six featured women, with public contact and business details from their current profiles.
 - **Magazine (built)**: issue shelf and reading links for the existing digital issues, plus the announced next issue date.
 - **Organisation (built)**: About, committee/Our Team, speakers, sponsors, FAQ, contact, help hotline, women's health and get involved.
-- **Programs and resources**: Dress 4 Success information and galleries, Coffee Meetup, Fitness Buddy, courses/workshops, Empowering Showcase, surveys and public campaign pages.
+- **Programmes and campaigns (built)**: Coffee Meetup, Dress 4 Success, Empowering Wellness Expo, R U OK? Day in Sydney and Hong Kong, Small Business Showcase, Women's Health and Wellness Day, Biggest Morning Tea, and their captured photo galleries.
 - **Membership (built)**: explain Bronze, Silver and Gold · Biz plans and every current benefit; Join links to Wix checkout.
-- **Navigation continuity**: unbuilt Phase 1 routes link to their matching current-site URL until migrated.
+- **Navigation continuity (built)**: every retained Phase 1 informational route is local; transactional destinations remain on Wix.
+
+Phase 1 public informational pages are complete. Deliberately excluded from migration were courses, Christmas gift ideas, generic service/booking/inquiry pages, profiles and referral pages, donation and silent-auction flows, showcase applications, surveys, the duplicate e-magazine page, the one-image Fitness Buddy page, product/category pages, and all form pages. These captures were duplicate, transactional, private-account, obsolete, or too insubstantial to publish as standalone information pages.
 
 ### Later: transactions and participation tools
 

@@ -10,7 +10,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "validate": "astro check && astro build",
+    "validate": "astro check && astro build && python3 scripts/check-links.py",
     "reports:index": "python3 scripts/reports-index.py",
     "astro": "astro"
   },

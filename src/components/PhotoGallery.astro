@@ -1,0 +1,17 @@
+---
+import { Image } from 'astro:assets';
+interface Photo { image?: ImageMetadata; alt: string; }
+interface Props { title: string; photos: Photo[]; headingLevel?: 'h2' | 'h3'; eagerFirst?: boolean; id?: string; }
+const { title, photos, headingLevel = 'h2', eagerFirst = false, id } = Astro.props;
+const Heading = headingLevel;
+const available = photos.filter((photo) => photo.image);
+const headingId = id ?? `gallery-${title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
+---
+<section class="gallery-set" aria-labelledby={headingId}>
+  <div class="gallery-heading"><Heading id={headingId}>{title}</Heading><span class="label">{available.length} photos</span></div>
+  {available.length > 0 && (
+    <ul class="photo-grid">
+      {available.map((photo, index) => <li><Image src={photo.image!} alt={photo.alt} widths={[360, 560, 760]} sizes="(max-width: 56.249rem) 50vw, 25vw" loading={eagerFirst && index === 0 ? 'eager' : 'lazy'} /></li>)}
+    </ul>
+  )}
+</section>

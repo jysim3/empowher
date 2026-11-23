@@ -26,7 +26,7 @@ This file holds rules coding agents must see without digging. Keep procedures in
 
 ## Finish every workflow with tests
 
-Run the coverage required below, then `PATH=$HOME/.nvm/versions/node/v22.23.5/bin:$PATH npm run validate`. No unit-test runner exists yet.
+Run the coverage required below, then `PATH=$HOME/.nvm/versions/node/v22.23.5/bin:$PATH npm run validate`. Validation checks Astro, builds the site, and checks every built root-relative link and asset. No unit-test runner exists yet.
 
 | Surface | Change type | Required coverage | Command |
 | --- | --- | --- | --- |
