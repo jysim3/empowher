@@ -2,7 +2,9 @@
   "name": "Bronze",
   "yearlyPrice": 20,
   "summary": "WhatsApp group, newsletter",
-  "benefits": ["Welcome WhatsApp chat group", "EmpowHER newsletter"],
+  "description": "Join the EmpowHER Sydney Inc. Membership! Welcome WhatsApp Chat Group and access limited benefits. EmpowHER women, showcase your interests, and connect with a supportive community. Apply today!",
+  "summaryBenefits": ["Welcome WhatsApp chat group", "EmpowHER newsletter"],
+  "benefits": ["Welcome WhatsApp Chat Group", "EmpowHER Newsletter"],
   "checkoutUrl": "https://www.empowhersydney.com/pricing-plans/list",
   "order": 1
 }
