@@ -9,6 +9,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Cover from '../components/Cover.astro';
 import EventRow from '../components/EventRow.astro';
+import MemberGrid from '../components/MemberGrid.astro';
 import { siteSettings } from '../data/site';
 import coffee from '../assets/coffee.jpg';
 import '../styles/tokens.css';
@@ -63,8 +64,8 @@ const { hero, highlights, quote, joinUrl, magazineUrl, eventsUrl, aboutUrl } = s
       </section>
 
       <section class="section" aria-labelledby="women-title">
-        <div class="section-head"><h2 id="women-title">EmpowHER Women</h2><span class="eyebrow label">For every woman, every dream, every stage of life</span></div>
-        <div class="member-row">{members.map(({ data }) => <figure><Image src={data.portrait} alt={`Portrait of ${data.name}`} widths={[132, 260, 420]} sizes="(max-width: 899px) 132px, 20vw" /><figcaption><strong>{data.name}</strong><span>{data.role}</span></figcaption></figure>)}</div>
+        <div class="section-head"><h2 id="women-title"><a href="/women">EmpowHER Women</a></h2><span class="eyebrow label">For every woman, every dream, every stage of life</span></div>
+        <MemberGrid members={members} />
       </section>
 
       <section class="section magazine" aria-labelledby="magazine-title">

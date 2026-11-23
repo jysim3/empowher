@@ -1,0 +1,24 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  members: CollectionEntry<'members'>[];
+  directory?: boolean;
+}
+
+const { members, directory = false } = Astro.props;
+---
+
+<div class:list={['member-row', { 'member-directory': directory }]}>
+  {members.map((member) => (
+    <figure>
+      <a href={`/women/${member.id.replace(/\.md$/, '')}`} aria-label={`Read ${member.data.name}'s profile`}>
+        {member.data.portrait ? (
+          <Image src={member.data.portrait} alt={member.data.portraitAlt} widths={[132, 260, 420]} sizes={directory ? '(max-width: 899px) 50vw, 33vw' : '(max-width: 899px) 132px, 20vw'} />
+        ) : <span class="member-portrait-missing" aria-hidden="true"></span>}
+        <figcaption><strong>{member.data.name}</strong><span>{member.data.role}</span></figcaption>
+      </a>
+    </figure>
+  ))}
+</div>
