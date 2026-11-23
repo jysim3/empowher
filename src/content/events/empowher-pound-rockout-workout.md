@@ -13,7 +13,7 @@ imageAlt: "EmpowHer POUND Rockout Workout"
 image: "../../assets/events/empowher-pound-rockout-workout.jpg"
 ---
 
-** **You're Invited!** **
+**You're Invited!**
 
 Join us for a complimentary **EmpowHER** Pound Rockout Workout, where you can enjoy a fun workout and meet new friends!
 

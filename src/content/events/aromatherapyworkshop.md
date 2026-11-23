@@ -21,19 +21,19 @@ assist with relaxation and why
 using on the skin.
 - You will get to make your own mist spray relaxation blend to take home with you
 
-**Title:** Aromatherapy Workshop: Essential Oils and Relaxation
+**Title:** Aromatherapy Workshop: Essential Oils and Relaxation
 
 Facilitated by Aromatherapist Vincenza Visciano, with over 25 years’ experience.
 
-**Venue:** Cafe Botanica Shop 6, 42 Walker Street, Rhodes NSW 2138
+**Venue:** Cafe Botanica Shop 6, 42 Walker Street, Rhodes NSW 2138
 
-**Date: **Thursday 26th February 2026
+strong>Date:</strong> Thursday 26th February 2026
 
 **Time:** 10am to 11am
 
-**Duration:** 60 minutes
+**Duration:** 60 minutes
 
-**Fee: **
+**Fee:**
 
 Non Member Early Bird 5% Discount -pay by 19th February 2026
 
@@ -50,7 +50,7 @@ Non Member Price $59.00
 - One hot or cold beverage
 - Workshop notes and essential oil kit
 
-### **Who Should Attend**
+### Who Should Attend
 
 This workshop is designed for anyone interested in enhancing their relaxation techniques through natural methods. Whether you're a beginner in the world of essential oils or looking to deepen your knowledge, this workshop is for you.
 
@@ -66,11 +66,11 @@ Come as you are, leave inspired. We can’t wait to welcome you to a morning of 
 
 Join us for a transformative experience that promotes relaxation and well-being through the art of aromatherapy!
 
-### **Parking is available: **
+### Parking is available:
 
 Rhodes Central or Street Parking
 
-### **Check-in:**
+### Check-in:
 
-- **EmpowHER Members:** Please present your membership card along with your digital ticket.
-- **Non-Members:** Please present your digital ticket.
+- **EmpowHER Members:** Please present your membership card along with your digital ticket.
+- **Non-Members:** Please present your digital ticket.

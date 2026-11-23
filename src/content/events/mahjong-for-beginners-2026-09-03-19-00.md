@@ -25,7 +25,7 @@ Every Thursdays
 
 **Location:** Cafe Botanica, Shop 6/42 Walker St, Rhodes NSW 2138
 
-**What to Expect: **
+**What to Expect:**
 
 No Chinese language knowledge or mahjong experience required
 
@@ -33,7 +33,7 @@ Step-by-step guidance in a friendly, supportive environment
 
 Meet new people and enjoy a relaxed, social evening Whether you're coming on your own or with a friend, everyone is welcome.
 
-**Why Attend? **
+**Why Attend?**
 
 Expand your social circle and connect with other women in the community
 
@@ -47,6 +47,6 @@ Grab your favorite foursome—or come solo and meet new friends.
 
 We'd love to see you there!
 
-**Cost: **Our meetup is free to attend. We simply ask that you purchase at least one drink to support our local café.
+strong>Cost:</strong> Our meetup is free to attend. We simply ask that you purchase at least one drink to support our local café.
 
-**Parking: **Street Parking or Rhodes Central Entry to the car park is via Marquet Street, Rhodes with 3 hours of FREE parking.
+strong>Parking:</strong> Street Parking or Rhodes Central Entry to the car park is via Marquet Street, Rhodes with 3 hours of FREE parking.

@@ -178,6 +178,24 @@ const hotlines = defineCollection({
     .strict(),
 });
 
+const posts = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/posts" }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string().min(1),
+      published: isoDateTime,
+      updated: isoDateTime.optional(),
+      excerpt: z.string().min(1),
+      categories: z.array(z.string().min(1)),
+      tags: z.array(z.string().min(1)),
+      author: z.string().min(1).optional(),
+      coverImage: image().optional(),
+      sourceImage: webUrl.optional(),
+      imageAlt: z.string().min(1).optional(),
+      sourceUrl: webUrl,
+    }).strict(),
+});
+
 export const collections = {
   events,
   members,
@@ -189,4 +207,5 @@ export const collections = {
   sponsors,
   faq,
   hotlines,
+  posts,
 };

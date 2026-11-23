@@ -23,26 +23,26 @@ Join us for the **Empowering Women Dinner**, a relaxed yet uplifting evening des
 
 This is more than just dinner—it’s a space where stories are shared, confidence is celebrated, and new connections begin.
 
-### **What to Expect**
+### What to Expect
 
-**Casual Dinner: **Enjoy a delicious selection of dishes in a warm, welcoming atmosphere—perfect for unwinding and connecting.
+strong>Casual Dinner:</strong> Enjoy a delicious selection of dishes in a warm, welcoming atmosphere—perfect for unwinding and connecting.
 
-**Genuine Networking: **Meet incredible women from diverse backgrounds, exchange stories, and build authentic relationships in a pressure-free setting.
+strong>Genuine Networking:</strong> Meet incredible women from diverse backgrounds, exchange stories, and build authentic relationships in a pressure-free setting.
 
-**Speak Up Moment: **A friendly opportunity for self-introductions—share who you are, what you do, or simply say hello.
+strong>Speak Up Moment:</strong> A friendly opportunity for self-introductions—share who you are, what you do, or simply say hello.
 
-**About EmpowHER Sydney Inc.: **Learn about our mission and vision and get a sneak peek at the exciting events and initiatives planned for 2026, all focused on empowering women personally and professionally.
+strong>About EmpowHER Sydney Inc.:</strong> Learn about our mission and vision and get a sneak peek at the exciting events and initiatives planned for 2026, all focused on empowering women personally and professionally.
 
 **Food Menu:** [https://www.theconcord.com.au/wp-content/uploads/2025/08/Main-Club-Menu-Aug-2025.pdf](https://www.theconcord.com.au/wp-content/uploads/2025/08/Main-Club-Menu-Aug-2025.pdf)
 
 *Food & Drinks purchase at your own expense.*
 
-### **Who Should Attend**
+### Who Should Attend
 
 All women are welcome—whether you’re looking to expand your network, find community, or simply enjoy a great evening out.
 
 **Bring a friend and make it even more special!**
 
-**Dress Code:** Smart casual
+**Dress Code:** Smart casual
 
 Come as you are, leave inspired. We can’t wait to welcome you to an evening of connection, empowerment, and new beginnings

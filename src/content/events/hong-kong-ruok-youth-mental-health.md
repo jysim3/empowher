@@ -22,7 +22,7 @@ Take a breath, connect, and learn in a safe space where *it’s okay to not be o
 - Thursday, 15 October 2026 | 12:30 PM – 2:00 PM
 - CTMP Performance Lab 5 /F Room A3, 109 Yuen Long On Lok Rd, Yuen Long, New Territories, Hong Kong
 元朗安樂路109-111號（5樓A3室)
-- **Highlights:** Mindful meditation, burnout discussions, sharing sessions, and a lucky draw!
+- **Highlights:** Mindful meditation, burnout discussions, sharing sessions, and a lucky draw!
 - Parents are welcome ! **爸爸媽媽，歡迎你哋呀！**
 
 Limited seating—**full name** registration required.
@@ -43,12 +43,12 @@ Room A3, 5/F , 109 Yuen Long On Lok Rd, Yuen Long, New Territories, Hong Kong
 
 元朗安樂路109-111號（5樓A3室）
 
-Parents are welcome ! **爸爸媽媽，歡迎你哋呀！ **
+Parents are welcome ! **爸爸媽媽，歡迎你哋呀！**
 
-**Featured Speakers **
+**Featured Speakers**
 
-- **THRIVE:** **Teressa Siu** — Award-winning former TV journalist, international wellness speaker, educator, and mental health advocate.
+- **THRIVE:** **Teressa Siu** — Award-winning former TV journalist, international wellness speaker, educator, and mental health advocate.
 
-**Supported by: **
+**Supported by:**
 
 CTMP Performance Lab

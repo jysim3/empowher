@@ -21,11 +21,11 @@ image: "../../assets/events/r-u-ok-mental-health-awareness.jpg"
 
 ### What to Expect:
 
-- **Free Food:** Enjoy light refreshment on us!
-- **Guest Speakers:** Hear inspiring talks from mental health advocates.
-- **Fun Games:** Engage in activities that promote connection and community.
-- **Speak Up: **Share your story!
-- **Lucky Draw:** Participate for a chance to win exciting prizes!
+- **Free Food:** Enjoy light refreshment on us!
+- **Guest Speakers:** Hear inspiring talks from mental health advocates.
+- **Fun Games:** Engage in activities that promote connection and community.
+- strong>Speak Up:</strong> Share your story!
+- **Lucky Draw:** Participate for a chance to win exciting prizes!
 
 ### Why Attend?
 
@@ -37,14 +37,14 @@ Join us for a vibrant community gathering dedicated to promoting mental health a
 
 This is a fantastic opportunity for everyone—kids, youth, adults, and seniors—to come together, learn, and celebrate mental well-being in a fun and supportive environment.
 
-**Event:** Ask R U Ok? Is Okay Not To Be Okay!
+**Event:** Ask R U Ok? Is Okay Not To Be Okay!
 
-**Where:** Cafe Botanica
+**Where:** Cafe Botanica
 
 Shop 6, 42 Walker Street, Rhodes NSW 2138
 
-**Date: **Saturday 5th September 2026
+strong>Date:</strong> Saturday 5th September 2026
 
-** Time: **11:00am-1:00pm
+strong>Time:</strong> 11:00am-1:00pm
 
 **We can’t wait to see you there!**

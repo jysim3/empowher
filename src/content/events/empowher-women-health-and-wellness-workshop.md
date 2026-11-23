@@ -13,15 +13,15 @@ imageAlt: "EmpowHer Women Health and Wellness Workshop"
 image: "../../assets/events/empowher-women-health-and-wellness-workshop.jpg"
 ---
 
-**Join Us for a Free Women's Health and Wellness Event! **
+**Join Us for a Free Women's Health and Wellness Event!**
 
 Let’s dive into vital topics like women's health, menopause, women's safety, and skincare. This is your chance to engage in meaningful discussions and gain valuable insights!
 
 **Lucky Door Prize!**
 
-**Date: **Saturday 12th October 2024
+strong>Date:</strong> Saturday 12th October 2024
 
-**Time: **10:30 AM - 1:30PM
+strong>Time:</strong> 10:30 AM - 1:30PM
 
 **Location:** @[cafebotanica.au](http://cafebotanica.au)
 
@@ -29,7 +29,7 @@ Cafe Botanica
 
 Shop 6, 42 Walker Street, Rhodes NSW 2138.
 
-**Guest Speaker: **
+**Guest Speaker:**
 
 Dr Mani Manoharan- Endocrinologist at Liverpool and Fairfield Hospital
 
@@ -39,7 +39,7 @@ Emma McMillan-Emma McMillan Senior Consultant Psychologist
 
 Lisa Latu - Senior Constable Crime Prevention Officer Burwood Police Area Command
 
-**Join us for a day filled with conversation, workouts, and fun workshops! **
+**Join us for a day filled with conversation, workouts, and fun workshops!**
 
 TeamDi
 

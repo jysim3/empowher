@@ -1,0 +1,21 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props { post: CollectionEntry<'posts'>; categoryNames: Record<string, string>; }
+const { post, categoryNames } = Astro.props;
+const date = post.data.published;
+const parts = new Intl.DateTimeFormat('en-AU', { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'Australia/Sydney' }).formatToParts(date);
+const part = (type: Intl.DateTimeFormatPartTypes) => parts.find((item) => item.type === type)?.value ?? '';
+const slug = post.id.replace(/\.md$/, '');
+---
+<li>
+  <a href={`/blog/${slug}`}>
+    <time class="event-date" datetime={date.toISOString()}><span>{part('day')}</span><small>{part('month')} · {part('year')}</small></time>
+    <span class="event-copy">
+      {post.data.categories[0] && <small class="label eyebrow">{categoryNames[post.data.categories[0]]}</small>}
+      <strong>{post.data.title}</strong>
+      <span>{post.data.excerpt}</span>
+    </span>
+    <span class="arrow" aria-hidden="true">→</span>
+  </a>
+</li>

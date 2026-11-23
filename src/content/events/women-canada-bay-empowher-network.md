@@ -13,7 +13,7 @@ imageAlt: "Women CANada Bay EmpowHer Network"
 image: "../../assets/events/women-canada-bay-empowher-network.jpg"
 ---
 
-Join us for an unforgettable experience! Free to Join!
+Join us for an unforgettable experience! Free to Join!
 
 Ready to meet incredible locals, form lasting friendships, and connect with women who truly "get" you?
 
