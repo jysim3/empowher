@@ -10,8 +10,8 @@ Astro 7.4 static output, strict TypeScript and plain Astro components/CSS. Image
 /                    Home page, built now
 /events              Event list, built
 /events/[slug]       Event detail with Wix registration link, built
-/women               EmpowHER Women directory, Phase 1
-/women/[slug]        Woman profile, Phase 1
+/women               EmpowHER Women directory, built
+/women/[slug]        Woman profile, built
 /membership          Membership with Wix checkout links, Phase 1
 /magazine            Magazine shelf, Phase 1
 /blog                 Blog list, Phase 1
@@ -28,7 +28,7 @@ This is a single-tenant site. Astro's loader-based content collections are defin
 | Collection | File type | Fields | Who edits |
 |---|---|---|---|
 | `events` | Markdown | Title, optional start/end or date-TBD state, venue, locality, address, summary, registration URL, optional local/source image metadata and status; body description | Committee through the later editing screen |
-| `members` | Markdown | Name, role/business, portrait, optional links, home feature flag/order; body bio | Committee through the later editing screen |
+| `members` | Markdown | Name, role/business, optional portrait/banner, image sources and alt text, optional contact fields and links, home feature flag/order; body profile | Committee through the later editing screen |
 | `plans` | JSON | Name, numeric yearly price, summary, benefits, checkout URL, order | Committee through the later editing screen |
 | `issues` | JSON | Title, issue number, optional confirmed month, cover, Issuu URL | Committee through the later editing screen |
 

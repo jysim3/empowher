@@ -1,0 +1,77 @@
+---
+import '@fontsource-variable/fraunces';
+import '@fontsource-variable/source-sans-3';
+import '@fontsource/oswald/500.css';
+import { Image } from 'astro:assets';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import '../../styles/tokens.css';
+import '../../styles/global.css';
+
+export async function getStaticPaths() {
+  const members = await getCollection('members');
+  return members.map((member) => ({ params: { slug: member.id.replace(/\.md$/, '') }, props: { member } }));
+}
+
+interface Props {
+  member: CollectionEntry<'members'>;
+}
+
+const { member } = Astro.props;
+const { data } = member;
+const { Content } = await render(member);
+const details = [
+  data.businessName && { label: 'Business', value: data.businessName },
+  data.email && { label: 'Email', value: data.email, href: `mailto:${data.email}` },
+  data.phone && { label: 'Phone', value: data.phone },
+  data.address && { label: 'Address', value: data.address },
+  data.languages && { label: 'Languages', value: data.languages },
+].filter(Boolean) as { label: string; value: string; href?: string }[];
+
+const linkText = (label: string, url: string) => {
+  if (label !== 'Website') return label;
+  try {
+    return new URL(url).hostname.replace(/^www\./i, '');
+  } catch {
+    return label;
+  }
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={`Meet ${data.name}, ${data.profileTitle ?? data.role}, through EmpowHER Sydney.`} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{data.name} · EmpowHER Women</title>
+  </head>
+  <body>
+    <Header primaryJoin={false} />
+    <main>
+      <article>
+        <header class="section member-profile-heading">
+          <a class="text-link breadcrumb" href="/women">EmpowHER Women</a>
+          <div class="stack member-title">
+            <span class="eyebrow label">{data.profileTitle ?? data.role}</span>
+            <h1>{data.name}</h1>
+          </div>
+        </header>
+        <div class="section member-profile-layout">
+          <div class="member-profile-aside">
+            {data.portrait ? <div class="profile-portrait"><Image src={data.portrait} alt={data.portraitAlt} loading="eager" widths={[420, 640, 840]} sizes="(max-width: 899px) 100vw, 34vw" /></div> : <div class="profile-portrait profile-portrait-missing" aria-hidden="true"></div>}
+            <dl class="member-details">
+              {details.map((detail) => <div><dt class="label">{detail.label}</dt><dd>{detail.href ? <a class="text-link" href={detail.href}>{detail.value}</a> : detail.value}</dd></div>)}
+              {data.links?.map((link) => <div><dt class="label">{link.label}</dt><dd><a class="text-link" href={link.url}>{linkText(link.label, link.url)}</a></dd></div>)}
+            </dl>
+            {data.banner && <Image class="member-banner" src={data.banner} alt={data.bannerAlt ?? ''} widths={[420, 640, 840]} sizes="(max-width: 899px) 100vw, 34vw" />}
+          </div>
+          <div class="member-body"><Content /></div>
+        </div>
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>

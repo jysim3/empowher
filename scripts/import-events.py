@@ -426,8 +426,13 @@ def download_images() -> int:
             target = existing[0]
         else:
             request = urllib.request.Request(resized_wix_url(str(source)), headers={"User-Agent": "EmpowHER-event-import/1.0"})
-            with urllib.request.urlopen(request, timeout=30) as response, target.open("wb") as output:
-                output.write(response.read())
+            # Read fully, write to a hidden temporary file, then rename: an interrupted
+            # download must never leave a partial file that later runs treat as complete.
+            with urllib.request.urlopen(request, timeout=30) as response:
+                data = response.read()
+            partial = target.with_name(f".{target.name}.part")
+            partial.write_bytes(data)
+            partial.replace(target)
             downloaded += 1
             target = as_jpeg(target)
         content = CONTENT_DIR / f"{event['slug']}.md"
