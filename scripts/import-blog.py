@@ -195,9 +195,27 @@ def rewrite_url(url: str) -> str:
     if not url.startswith("https://www.empowhersydney.com/"):
         return url
     path = urlparse(url).path
-    exact = {"/whatson": "/events", "/membership": "/membership", "/magazine": "/magazine", "/women": "/women"}
+    exact = {
+        "/whatson": "/events", "/event-list": "/events",
+        "/pricing-plans/list": "/membership", "/membership": "/membership",
+        "/empowher-magazine": "/magazine", "/magazine": "/magazine",
+        "/empowher-women": "/women", "/women": "/women",
+        "/blog": "/blog", "/about-us": "/about", "/contactus": "/contact",
+        "/sponsors": "/sponsors", "/faq": "/faq", "/helphotline": "/hotline",
+    }
+    path = path.rstrip("/") or "/"
     if path in exact: return exact[path]
-    if path.startswith("/event-details/"): return path
+    # Event pages moved from /event-details/<slug> to /events/<slug>; only link
+    # locally when that event file exists, otherwise keep the old site's address.
+    if path.startswith("/event-details/"):
+        slug = path.split("/event-details/", 1)[1]
+        if (ROOT / "src" / "content" / "events" / f"{slug}.md").exists():
+            return f"/events/{slug}"
+        return url
+    if path.startswith("/post/"):
+        slug = path.split("/post/", 1)[1]
+        if (ROOT / "reference" / "original-site" / "pages" / f"post__{slug}.md").exists():
+            return f"/blog/{slug}"
     return url
 
 

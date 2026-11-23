@@ -34,4 +34,4 @@ We keep our coffee meetups intimate to make sure everyone can have real, deep co
 
 Come along to share your story, listen to others, and celebrate the power of women supporting women. We cannot wait to share a coffee and a laugh with you!
 
-[**Click Here to Secure Your Spot for the August Meetup Now!**](/event-details/empowher-coffee-meetup-august-2026)
+[**Click Here to Secure Your Spot for the August Meetup Now!**](/events/empowher-coffee-meetup-august-2026)

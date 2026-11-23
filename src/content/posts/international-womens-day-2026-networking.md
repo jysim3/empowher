@@ -156,4 +156,4 @@ In the spirit of giving, 10% of all ticket sales will be donated to the EmpowHer
 
 • If you feel unwell, please rest and let us know to release your seat.
 
-[https://www.empowhersydney.com/event-details/internationalwomensday](/event-details/internationalwomensday)
+[https://www.empowhersydney.com/event-details/internationalwomensday](/events/internationalwomensday)

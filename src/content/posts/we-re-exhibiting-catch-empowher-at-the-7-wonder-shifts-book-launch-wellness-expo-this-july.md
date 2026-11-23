@@ -53,4 +53,4 @@ The festival is just around the corner, so make sure to lock in your spot. Head 
 
 [https://events.wonderlab.com.au/the-7-wonder-shifts/](https://events.wonderlab.com.au/the-7-wonder-shifts/)
 
-Don't forget to keep an eye on our [EmpowHER Blog](https://www.empowhersydney.com/blog) and socials for more updates as we get closer to the big day!
+Don't forget to keep an eye on our [EmpowHER Blog](/blog) and socials for more updates as we get closer to the big day!

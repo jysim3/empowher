@@ -32,4 +32,4 @@ Whether you are looking to level up your career, discover nourishing wellness ro
 
 This magazine was created with love by our community, for our community. We invite you to grab your favourite warm drink, settle into a cosy spot, and flip through the digital pages with us. Let’s keep growing, learning, and lifting each other up.
 
-The digital edition is completely **free** [https://www.empowhersydney.com/empowher-magazine](https://www.empowhersydney.com/empowher-magazine)
+The digital edition is completely **free** [https://www.empowhersydney.com/empowher-magazine](/magazine)
