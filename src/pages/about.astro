@@ -1,0 +1,5 @@
+---
+import { getEntry, render } from 'astro:content'; import OrgPage from '../components/OrgPage.astro';
+const page = await getEntry('pages', 'about'); if (!page) throw new Error('Missing about content'); const { Content } = await render(page);
+---
+<OrgPage title={page.data.title} label="Our organisation" lede={page.data.lede}><section class="section org-prose"><Content /></section></OrgPage>

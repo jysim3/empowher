@@ -1,0 +1,9 @@
+---
+import { Image } from 'astro:assets'; import { getCollection, getEntry, render } from 'astro:content'; import OrgPage from '../components/OrgPage.astro';
+const people = (await getCollection('committee')).sort((a,b)=>a.data.order-b.data.order);
+const page = await getEntry('pages', 'committee'); if (!page) throw new Error('Missing committee content'); const { Content } = await render(page);
+---
+<OrgPage title={page.data.title} label="Our team" lede={page.data.lede}>
+  <section class="section committee-intro">{page.data.image && <Image src={page.data.image} alt="Committee" />}<div class="org-prose"><Content /></div></section>
+  <section class="section"><div class="people-list">{people.map(({data}) => <article><h2>{data.name}</h2><p class="label">{data.role}</p></article>)}</div></section>
+</OrgPage>

@@ -1,0 +1,17 @@
+---
+import '@fontsource-variable/fraunces';
+import '@fontsource-variable/source-sans-3';
+import '@fontsource/oswald/500.css';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import '../styles/tokens.css';
+import '../styles/global.css';
+interface Props { title: string; label: string; lede?: string; description?: string; }
+const { title, label, lede, description = lede ?? title } = Astro.props;
+---
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width" />
+<meta name="description" content={description} /><link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<title>{title} · EmpowHER Sydney</title></head><body><Header /><main>
+<header class="section page-intro stack"><span class="eyebrow label">{label}</span><h1>{title}</h1>{lede && <p class="lede org-lede">{lede}</p>}</header>
+<slot /></main><Footer /></body></html>
