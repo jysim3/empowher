@@ -1,0 +1,14 @@
+---
+const links = [
+  ['About us','https://www.empowhersydney.com/about-us'], ["What's on",'https://www.empowhersydney.com/event-list'],
+  ['EmpowHER Women','https://www.empowhersydney.com/empowher-women'], ['Magazine','https://www.empowhersydney.com/empowher-magazine'],
+  ['Shop','https://www.empowhersydney.com/category/all-products'], ['Sponsors','https://www.empowhersydney.com/sponsors'],
+  ['Membership','https://www.empowhersydney.com/pricing-plans/list'], ['Blog','https://www.empowhersydney.com/blog'],
+  ['Contact','https://www.empowhersydney.com/contactus'],
+];
+---
+<header class="site-header">
+  <a class="wordmark" href="/" aria-label="EmpowHER Sydney home">Empow<i>HER</i></a>
+  <nav class="desktop-nav" aria-label="Main navigation">{links.map(([label, href]) => <a href={href}>{label}</a>)}<a class="join" href="https://www.empowhersydney.com/pricing-plans/list">Join</a></nav>
+  <details class="phone-nav"><summary class="label">Menu</summary><nav aria-label="Mobile navigation">{links.map(([label, href]) => <a href={href}>{label}</a>)}<a class="join" href="https://www.empowhersydney.com/pricing-plans/list">Join</a></nav></details>
+</header>

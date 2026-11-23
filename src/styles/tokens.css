@@ -1,0 +1,85 @@
+:root {
+  --color-ground: #fbf8f6;
+  --color-surface: #ffffff;
+  --color-ink: #1b1217;
+  --color-ink-muted: #5f5158;
+  --color-ink-faint: #a3979d;
+  --color-line: #d9cfd3;
+  --color-line-strong: #1b1217;
+  --color-primary: #b80a66;
+  --color-on-primary: #ffffff;
+  --color-link: #1b1217;
+  --color-cover-shadow: #d9cfd3;
+  --color-cover-scrim: #1b1217;
+  --color-brand-pink: #e0097f;
+
+  --font-display: "Fraunces Variable", Georgia, serif;
+  --font-body: "Source Sans 3 Variable", "Helvetica Neue", sans-serif;
+  --font-label: "Oswald", "Arial Narrow", sans-serif;
+  --font-size-display: clamp(44px, 6.6vw, 84px);
+  --font-size-heading: clamp(28px, 3.2vw, 40px);
+  --font-size-title: 22px;
+  --font-size-body: 17px;
+  --font-size-small: 14px;
+  --font-size-label: 14px;
+  --font-size-cover: clamp(48px, 6vw, 70px);
+  --font-size-date: clamp(34px, 4vw, 54px);
+  --font-size-price: clamp(30px, 4vw, 56px);
+  --font-size-quote: clamp(22px, 3vw, 34px);
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --line-display: 1;
+  --line-heading: 1.05;
+  --line-title: 1.2;
+  --line-body: 1.6;
+  --line-small: 1.5;
+  --line-label: 1.4;
+  --tracking-label: 0.06em;
+
+  --radius-base: 4px;
+  --radius-multiplier: 0;
+  --radius-pill: 0;
+  --radius-card: 0;
+  --radius-input: 0;
+  --radius-image: 0;
+
+  --space-unit: 4px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-gutter: 20px;
+  --space-button-x: 22px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-section: 64px;
+  --card-padding: 24px;
+  --cover-width: 420px;
+  --cover-offset: 12px;
+  --issue-width: 190px;
+  --member-phone-width: 132px;
+  --page-max: 1280px;
+  --measure: 65ch;
+  --target-min: 44px;
+  --rule: 1px;
+  --underline: 2px;
+  --focus-offset: 3px;
+  --cover-ratio: 3 / 4;
+  --event-ratio: 3 / 2;
+
+  --motion-fast: 175ms;
+  --motion-medium: 410ms;
+  --motion-slow: 975ms;
+  --motion-reduce: 200ms;
+}
+
+@media (min-width: 64rem) {
+  :root { --space-gutter: 64px; }
+}
+
+@media (max-width: 56.249rem) {
+  :root { --space-section: 24px; }
+}
