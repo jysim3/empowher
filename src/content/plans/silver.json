@@ -1,0 +1,8 @@
+{
+  "name": "Silver",
+  "yearlyPrice": 50,
+  "summary": "$25 welcome gift, 10% off events",
+  "benefits": ["Welcome coupon or gift, value $25", "Invitation to the WhatsApp chats", "Access to merchant list offer", "Up to 10% off workshops and events"],
+  "checkoutUrl": "https://www.empowhersydney.com/pricing-plans/list",
+  "order": 2
+}

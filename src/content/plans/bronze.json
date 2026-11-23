@@ -1,0 +1,8 @@
+{
+  "name": "Bronze",
+  "yearlyPrice": 20,
+  "summary": "WhatsApp group, newsletter",
+  "benefits": ["Welcome WhatsApp chat group", "EmpowHER newsletter"],
+  "checkoutUrl": "https://www.empowhersydney.com/pricing-plans/list",
+  "order": 1
+}

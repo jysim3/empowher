@@ -26,6 +26,7 @@ The public site is useful without an account. Until a later-phase replacement is
 
 ### Later: transactions and participation tools
 
+- **Committee editing**: a git-based editing screen creates and updates one content file per event, member, plan or magazine issue, then rebuilds the static site. Open questions: which editor to use and how committee members sign in; GitHub Pages has no server, so authentication and repository writes require an external service.
 - **Event registration**: native registration, capacity, confirmation and attendee workflows.
 - **Membership payments**: native checkout, renewals and plan management.
 - **Shop**: product catalogue, cart, checkout and orders.
@@ -46,7 +47,7 @@ The public site is useful without an account. Until a later-phase replacement is
 ## Open questions for the owner
 
 - Can a clean SVG logo be supplied? Default: use the typographic wordmark.
-- Who edits content after launch? Default: maintain typed files in the private repository.
+- Which git-based editor should the committee use, and how should members sign in? Default: keep direct repository editing during the build; do not add credentials or an editor until the external authentication flow is approved.
 - Which domain and hosting provider will be used? Default: prepare a provider-neutral static build.
 - Do we have permission to reuse every captured photo? Default: publish only images whose permission is confirmed.
 - What is the approved redirect map from old URLs? Default: preserve meaningful slugs and document every redirect before launch.

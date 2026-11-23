@@ -2,6 +2,7 @@
 
 Format: date, decision, why. Newest first. Read before reversing one.
 
+- **2026-11-24 Content editing.** The committee will edit content through an editing screen in a later phase; from now on all content is one file per item in content collections.
 - **2026-11-24 GitHub Pages during the build.** Publish build previews with GitHub Pages while the live domain stays on Wix until the committee approves a switch. Pages from a private repository requires a paid GitHub plan, and the Pages site is public even when its repository is private.
 - **2026-11-24 Persona kit installed but empty.** Install the persona framework and workflow, but leave persona pages empty for now. The committee persona will be filled later (“we will circle back”), feedback will be relayed by the developer, and no persona rounds run until a persona exists.
 - **2026-11-24 Private GitHub repository with Issues only.** The future repository will be private at `jysim3/empowher`; use GitHub Issues without a second project-management system.
