@@ -1,0 +1,268 @@
+<!doctype html>
+<!--
+  Merge report template (sourdough).
+  Copy this file, keep the <style> block as-is, replace every [PLACEHOLDER] and the
+  example rows, and delete the blocks marked CONDITIONAL when their condition fails.
+  Fill the repo-specific values once at install time. Rules (from SKILL.md): no JS, no CDN, no web
+  fonts; media copied to ./assets/ and linked relatively; external links https:// only;
+  12-year-old vocabulary with exact code names kept in <code>.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>[ITEM TITLE] — merge report</title>
+    <style>
+      :root {
+        --bg: #ffffff;
+        --ink: #1a1d21;
+        --muted: #5c6470;
+        --line: #e3e6ea;
+        --card: #f6f8fa;
+        --accent: #2563eb;
+        /* review status */
+        --fix: #d1fae5;
+        --fix-ink: #065f46;
+        --defer: #fef3c7;
+        --defer-ink: #92400e;
+        --dead: #e5e7eb;
+        --dead-ink: #4b5563;
+        --bug: #fee2e2;
+        --bug-ink: #991b1b;
+        /* who decided */
+        --pm: #dbeafe;
+        --pm-ink: #1e40af;
+        --eng: #ede9fe;
+        --eng-ink: #5b21b6;
+        --auto: #fef3c7;
+        --auto-ink: #92400e;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #101418;
+          --ink: #e6e9ec;
+          --muted: #9aa4af;
+          --line: #2a323b;
+          --card: #171d24;
+          --accent: #7aa2ff;
+          --fix: #123b2c;
+          --fix-ink: #6ee7b7;
+          --defer: #3b2f12;
+          --defer-ink: #fcd34d;
+          --dead: #262c33;
+          --dead-ink: #9aa4af;
+          --bug: #3b1518;
+          --bug-ink: #fca5a5;
+          --pm: #172554;
+          --pm-ink: #93c5fd;
+          --eng: #2e1065;
+          --eng-ink: #c4b5fd;
+          --auto: #3b2f12;
+          --auto-ink: #fcd34d;
+        }
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+      main { max-width: 940px; margin: 0 auto; padding: 32px 20px 80px; }
+      h1 { font-size: 1.6rem; margin: 0 0 6px; }
+      h2 { font-size: 1.15rem; margin: 40px 0 12px; padding-top: 16px; border-top: 1px solid var(--line); }
+      .meta { color: var(--muted); font-size: 0.92rem; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+      .meta a { color: var(--accent); text-decoration: none; }
+      .meta a:hover { text-decoration: underline; }
+      code { font: 0.86em ui-monospace, "SF Mono", Menlo, Consolas, monospace; background: var(--card); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; }
+      ul { padding-left: 22px; }
+      li { margin: 4px 0; }
+      .tablewrap { overflow-x: auto; }
+      table { border-collapse: collapse; width: 100%; font-size: 0.94rem; }
+      th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+      th { background: var(--card); font-weight: 600; white-space: nowrap; }
+      .badge { display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 0.78rem; font-weight: 600; white-space: nowrap; }
+      /* review status badges */
+      .badge.bug { background: var(--bug); color: var(--bug-ink); }
+      .badge.fix { background: var(--fix); color: var(--fix-ink); }
+      .badge.defer { background: var(--defer); color: var(--defer-ink); }
+      .badge.dead { background: var(--dead); color: var(--dead-ink); }
+      /* who-decided badges: role colour never changes because of the auto marker */
+      .badge.pm { background: var(--pm); color: var(--pm-ink); }
+      .badge.eng { background: var(--eng); color: var(--eng-ink); }
+      .badge.auto { background: var(--auto); color: var(--auto-ink); margin-left: 4px; }
+      tr.auto td:first-child { border-left: 3px solid var(--auto-ink); }
+      .callout { margin: 24px 0 0; padding: 14px 16px; border-radius: 8px; background: var(--bug); color: var(--bug-ink); border: 1px solid var(--bug-ink); }
+      .callout h2 { margin: 0 0 8px; padding: 0; border: 0; color: inherit; font-size: 1.05rem; }
+      .callout p, .callout ul { margin: 6px 0; }
+      .callout code { background: transparent; border-color: currentColor; color: inherit; }
+      .warn { margin: 16px 0 0; padding: 12px 14px; border-radius: 8px; background: var(--defer); color: var(--defer-ink); border: 1px solid var(--defer-ink); }
+      .warn code { background: transparent; border-color: currentColor; color: inherit; }
+      .repro { margin: 8px 0 0; padding-left: 20px; font-size: 0.9rem; color: var(--muted); }
+      .repro li { margin: 2px 0; }
+      figure { margin: 16px 0; }
+      video, img.shot { width: 100%; max-width: 480px; border: 1px solid var(--line); border-radius: 8px; display: block; }
+      .shots { display: flex; flex-wrap: wrap; gap: 16px; }
+      .shots figure { flex: 1 1 220px; max-width: 260px; margin: 0; }
+      figcaption { color: var(--muted); font-size: 0.88rem; margin-top: 6px; }
+      .note { color: var(--muted); font-style: italic; }
+      footer { margin-top: 48px; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--line); padding-top: 12px; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <!-- 1. HEADER — <h1> is the item title verbatim; meta order is fixed. -->
+      <h1>[ITEM TITLE]</h1>
+      <div class="meta">
+        <span>Item <a href="https://github.com/jysim3/empowher/issues/[N]">#[N]</a></span>
+        <span>PR <a href="https://github.com/jysim3/empowher/pull/[M]">#[M]</a></span>
+        <span>Branch <code>[feat/N-slug]</code></span>
+        <span>[YYYY-MM-DD]</span>
+        <span>Board: [Reviewing]</span>
+      </div>
+
+      <!-- 2. NEEDS YOUR CALL — CONDITIONAL. Keep ONLY when a blocking decision exists
+           (approach judged wrong, or an architecture note from a recurring cause).
+           Delete the whole block otherwise — never render an "all good" banner.
+           Exactly three options, then "Our pick". -->
+      <div class="callout">
+        <h2>Needs your call — do not merge yet</h2>
+        <p>[The review says the approach is wrong: … . After reading the code, we agree because … .]</p>
+        <ul>
+          <li><strong>Restructure now</strong> — [what it costs]</li>
+          <li><strong>Restructure as a follow-up</strong> — [ship with guards + a tracked item]</li>
+          <li><strong>Accept the guards</strong> — [what stays imperfect]</li>
+        </ul>
+        <p><strong>Our pick:</strong> [option], [one-clause why].</p>
+      </div>
+
+      <!-- 3. WHAT CHANGED — 3–6 bullets, bold lead phrase, what now works that didn't. -->
+      <h2>What changed</h2>
+      <ul>
+        <li><strong>[Lead phrase.]</strong> [Organisers can now …; before this they had to ….]</li>
+        <li><strong>[Lead phrase.]</strong> [The … screen shows … when ….]</li>
+      </ul>
+
+      <!-- 4. DECISIONS — one row per Decision log line.
+           Order: rows marked "(decided without you)" first, then PM, then Eng; posting
+           order inside each group.
+           Who cell: <span class="badge pm">PM</span> or <span class="badge eng">Eng</span>;
+           auto rows add <span class="badge auto">decided without you</span> AND
+           class="auto" on the <tr>. Role badge colour never changes.
+           Empty: <p class="note">No decisions needed — the item was already exact.</p> -->
+      <h2>Decisions</h2>
+      <div class="tablewrap">
+        <table>
+          <tr><th>Who</th><th>Question</th><th>What we chose</th><th>Why</th></tr>
+          <tr class="auto">
+            <td><span class="badge eng">Eng</span><span class="badge auto">decided without you</span></td>
+            <td>[Old data has sessions with no <code>capacity</code>; block or allow?]</td>
+            <td>[Treat missing <code>capacity</code> as unlimited.]</td>
+            <td>[Most reversible: no write is blocked, and a later rule can tighten it.]</td>
+          </tr>
+          <tr>
+            <td><span class="badge pm">PM</span></td>
+            <td>[Do guests count toward capacity?]</td>
+            <td>[Yes, same as players.]</td>
+            <td>[One seat is one seat; <code>registeredCount</code> stays the single source.]</td>
+          </tr>
+          <tr>
+            <td><span class="badge eng">Eng</span></td>
+            <td>[Where does the seat maths live?]</td>
+            <td>[<code>packages/shared/src/seating.ts</code>]</td>
+            <td>[Mobile, web, and Rules all need the same answer.]</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- 5. SCHEMA CHANGES — CONDITIONAL. Keep ONLY when the PR touches src/content.config.ts.
+           Delete the whole block otherwise. Exact field and file names here. -->
+      <h2>Schema changes</h2>
+      <p class="note"><code>[src/content.config.ts&lt;file&gt;.ts]</code></p>
+      <div class="tablewrap">
+        <table>
+          <tr><th>Field</th><th>Type</th><th>Required?</th><th>What it means</th></tr>
+          <tr>
+            <td><code>[fieldName]</code></td>
+            <td><code>[z.number()]</code></td>
+            <td>[Optional]</td>
+            <td>[What this records, in one line.]</td>
+          </tr>
+        </table>
+      </div>
+      <ul>
+        <li><strong>Documents that already exist:</strong> [still valid as-is / need a backfill because …]</li>
+        <li><strong>Optional vs nullable vs required:</strong> [why, and what must never write a default here]</li>
+        <li><strong>Who writes it:</strong> [which surfaces, and whether the value is trusted or a client claim]</li>
+        <li><strong>Access rules:</strong> [what changed in the static content schemas, or why nothing had to]</li>
+      </ul>
+
+      <!-- 6. WHAT IT LOOKS LIKE — video for mobile/web UI (caption starts "Watch for:"),
+           .shots grid of <img class="shot"> for screenshot-only surfaces, both allowed
+           (video first). Media MUST be copied into ./assets/ first.
+           Backend-only PR: replace the figure with
+           <p class="note">Backend only — <code>[test file]</code> proves it: [what it asserts].</p> -->
+      <h2>What it looks like</h2>
+      <figure>
+        <video controls preload="metadata" src="assets/[flow-name].mp4"></video>
+        <figcaption>Watch for: [the … appears after tapping …; then …].</figcaption>
+      </figure>
+      <div class="shots">
+        <figure><img class="shot" src="assets/[shot-1].png" alt="[what it shows]" /><figcaption>[One line.]</figcaption></figure>
+        <figure><img class="shot" src="assets/[shot-2].png" alt="[what it shows]" /><figcaption>[One line.]</figcaption></figure>
+      </div>
+
+      <!-- 7. REVIEW FINDINGS — one table across ALL rounds.
+           Heading counts: R rounds run, F rows fixed, D rows deferred; Not real counts in neither.
+           Row order: by round, then Bug, Edge case, Missing test, Cleanup, Speed, Not real.
+           Category: Bug → badge bug; Not real → badge dead; the other four plain text.
+           What we found: starts "Round N — "; every Bug row gets <ol class="repro"> of 3–5 steps.
+           Fix: badge fix "fixed" + what + owning commit | badge defer "deferred" | badge dead "not real".
+           Why deferred: the real reason on deferred rows; "—" on fixed and not-real rows.
+           Empty: keep the heading with 0 fixed, 0 deferred and
+           <p class="note">The review ran [N] rounds and found nothing in scope.</p> -->
+      <h2>What the Codex review found ([R] rounds, [F] fixed, [D] deferred)</h2>
+      <div class="tablewrap">
+        <table>
+          <tr><th>Category</th><th>What we found</th><th>Why it slipped past</th><th>Fix</th><th>Why deferred</th></tr>
+          <tr>
+            <td><span class="badge bug">Bug</span></td>
+            <td>Round 1 — [The "N going" number missed waitlisted guests — 3 players + 2 guests showed 3, because <code>getSeatSummary</code> only read players.]
+              <ol class="repro">
+                <li>[Open a session that is full.]</li>
+                <li>[Add a guest from the waitlist sheet.]</li>
+                <li>[The count at the top does not go up.]</li>
+              </ol>
+            </td>
+            <td>[Only tested with players, never guests.]</td>
+            <td><span class="badge fix">fixed</span> [counted guests in <code>getSeatSummary</code>, folded into <code>feat(web): …</code>]</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>Speed</td>
+            <td>Round 1 — [“Cache the level summary” — the page reloads it every visit.]</td>
+            <td>[We copied the load pattern from the roster page.]</td>
+            <td><span class="badge defer">deferred</span></td>
+            <td>[The page is not slow. Own PR if it ever is.]</td>
+          </tr>
+          <tr>
+            <td><span class="badge dead">Not real</span></td>
+            <td>Round 2 — [“Unbounded loop” in <code>buildRoster</code>.]</td>
+            <td>[The reviewer misread the guard — the loop runs over a fixed 5-item list.]</td>
+            <td><span class="badge dead">not real</span></td>
+            <td>—</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- 8. WORTH TRACKING — which deferred rows deserve a tracker item, or "none".
+           A recommendation the user answers in reply; the agent files only what they name. -->
+      <p><strong>Worth tracking:</strong> [Only the roster query limit — the rest are style calls.] Reply with any you want filed.</p>
+
+      <!-- 9. AFTER MERGING — CONDITIONAL. Keep ONLY when merging does not finish the job
+           (manual deploy, store release, migration/backfill, live config). Delete otherwise. -->
+      <div class="warn"><strong>After merging:</strong> [mobile only — ships with the next OTA update, after the #[K] rules deploy if it has not run.]</div>
+
+      <!-- 10. FOOTER -->
+      <footer>
+        Merge report for <a href="https://github.com/jysim3/empowher/pull/[M]">PR #[M]</a>, built [YYYY-MM-DD] before squash merge.
+        Board: <a href="https://github.com/jysim3/empowher/issues">jysim3/empowher issues</a>.
+      </footer>
+    </main>
+  </body>
+</html>

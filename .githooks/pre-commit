@@ -1,0 +1,10 @@
+#!/bin/sh
+set -eu
+
+if git diff --cached --quiet -- . ':(exclude)docs/**' ':(exclude)**/*.md'; then
+  echo "docs-only commit: skipping npm run validate"
+  exit 0
+fi
+
+PATH="$HOME/.nvm/versions/node/v$(cat .nvmrc)/bin:$PATH" npm run validate
+

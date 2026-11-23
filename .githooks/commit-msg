@@ -1,0 +1,19 @@
+#!/bin/sh
+set -eu
+
+branch=$(git branch --show-current)
+[ "$branch" = main ] && exit 0
+
+staged=$(git diff --cached --name-only)
+if [ -n "$staged" ] && [ -z "$(printf '%s\n' "$staged" | grep -v '^docs/personas/')" ]; then
+  exit 0
+fi
+
+message=$1
+for footer in 'Board:' 'Item:' 'Closes:'; do
+  if ! grep -q "^$footer" "$message"; then
+    echo "commit rejected: missing $footer footer; run python3 scripts/board.py commit-link <item>" >&2
+    exit 1
+  fi
+done
+
