@@ -23,16 +23,16 @@ Only `/` is implemented now. Future-route header links point to the correspondin
 
 ## Content layout
 
-This is a single-tenant site. Home events, members, plans and issues are typed in `src/data/home.ts`; images live in `src/assets/`. As route families are built, page-shaped Markdown will move into Astro content collections with schemas in `src/content.config.ts`.
+This is a single-tenant site. Astro's loader-based content collections are defined and strictly validated in `src/content.config.ts`. Every editable item has its own file under `src/content/`; referenced images live in `src/assets/` and pass through the collection `image()` helper and Astro image pipeline.
 
-| Data | Shape | Source of truth |
-|---|---|---|
-| `events` | `Event[]` | Typed home data; later event collection |
-| `members` | `Member[]` | Typed home data; later women collection |
-| `plans` | `Plan[]` | Typed home data and Wix checkout |
-| `issues` | `Issue[]` | Typed home data; later magazine collection |
+| Collection | File type | Fields | Who edits |
+|---|---|---|---|
+| `events` | Markdown | Title, start/end, venue, locality, summary, registration URL, optional image/status; body description | Committee through the later editing screen |
+| `members` | Markdown | Name, role/business, portrait, optional links, home feature flag/order; body bio | Committee through the later editing screen |
+| `plans` | JSON | Name, numeric yearly price, summary, benefits, checkout URL, order | Committee through the later editing screen |
+| `issues` | JSON | Title, issue number, optional confirmed month, cover, Issuu URL | Committee through the later editing screen |
 
-All content is public and build-time only. Repository write access controls editing; there is no browser write path.
+`src/data/site.ts` is a typed singleton for site-wide and home-page copy that is not a repeatable content item, including navigation, hero, highlights, cover lines and quote. All content is public and build-time only. Direct repository editing is the current path; the later editor will write these same files through external authentication and trigger a rebuild.
 
 ## Local development
 
@@ -50,4 +50,4 @@ PATH=/home/jysim/.nvm/versions/node/v22.23.5/bin:$PATH npm run validate
 
 ## Later-phase boundary
 
-Transactions stay behind outbound HTTPS links, so the static information architecture does not depend on a future provider. Replacing Wix requires separate decisions on identity, privacy, payments, refunds, migration and administration.
+Transactions stay behind outbound HTTPS links, so the static information architecture does not depend on a future provider. Replacing Wix requires separate decisions on identity, privacy, payments, refunds, migration and administration. GitHub Pages has no application server, so the committee editing screen will require an external authentication and Git-writing service.

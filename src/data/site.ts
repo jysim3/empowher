@@ -1,0 +1,35 @@
+export const siteSettings = {
+  nav: [
+    { label: 'About us', href: 'https://www.empowhersydney.com/about-us' },
+    { label: "What's on", href: 'https://www.empowhersydney.com/event-list' },
+    { label: 'EmpowHER Women', href: 'https://www.empowhersydney.com/empowher-women' },
+    { label: 'Magazine', href: 'https://www.empowhersydney.com/empowher-magazine' },
+    { label: 'Shop', href: 'https://www.empowhersydney.com/category/all-products' },
+    { label: 'Sponsors', href: 'https://www.empowhersydney.com/sponsors' },
+    { label: 'Membership', href: 'https://www.empowhersydney.com/pricing-plans/list' },
+    { label: 'Blog', href: 'https://www.empowhersydney.com/blog' },
+    { label: 'Contact', href: 'https://www.empowhersydney.com/contactus' },
+  ],
+  joinUrl: 'https://www.empowhersydney.com/pricing-plans/list',
+  eventsUrl: 'https://www.empowhersydney.com/event-list',
+  magazineUrl: 'https://www.empowhersydney.com/empowher-magazine',
+  aboutUrl: 'https://www.empowhersydney.com/about-us',
+  hero: {
+    eyebrow: "A women's network · Sydney Inc.",
+    headline: 'Empowering women.',
+    headlineEmphasis: 'Building futures.',
+    lede: "At EmpowHER, we create a safe and supportive space where women can connect, grow, and achieve their dreams together. Join us and be part of a movement that's changing the world, one woman at a time.",
+  },
+  highlights: [
+    { title: 'Event highlight', text: 'Empowering Wellness Expo, a free day for the whole family' },
+    { title: 'Coffee meetup', text: 'Last Saturday every month, women only' },
+    { title: 'Membership', text: 'Bronze, Silver and Gold from $20 a year' },
+  ],
+  cover: {
+    tag: 'Women supporting women',
+    pill: 'Rise. Lead. Shine.',
+    line: 'EmpowHER Women',
+    credit: 'Sharon Zhang, Vice Chairwoman',
+  },
+  quote: { text: '“Behind every great woman... is another great woman.”', attribution: 'Kate Hodges' },
+} as const;

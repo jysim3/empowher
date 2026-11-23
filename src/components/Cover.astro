@@ -1,10 +1,13 @@
 ---
 import { Image } from 'astro:assets';
 import sharon from '../assets/sharon.jpg';
+import { siteSettings } from '../data/site';
+
+const { cover } = siteSettings;
 ---
 <figure class="cover">
   <Image src={sharon} alt="Portrait of Sharon Zhang standing with her arms crossed and smiling" widths={[360, 420, 720]} sizes="(max-width: 899px) 100vw, 420px" />
   <div class="scrim" aria-hidden="true"></div>
-  <div class="cover-top"><span class="cover-title">Empow<i>HER</i></span><span class="cover-tag label">Women supporting women</span></div>
-  <figcaption class="cover-lines"><span class="cover-pill label">Rise. Lead. Shine.</span><strong>EmpowHER Women</strong><span>Sharon Zhang, Vice Chairwoman</span></figcaption>
+  <div class="cover-top"><span class="cover-title">Empow<i>HER</i></span><span class="cover-tag label">{cover.tag}</span></div>
+  <figcaption class="cover-lines"><span class="cover-pill label">{cover.pill}</span><strong>{cover.line}</strong><span>{cover.credit}</span></figcaption>
 </figure>
