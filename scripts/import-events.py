@@ -9,7 +9,7 @@ import json
 import re
 import sys
 import urllib.request
-from datetime import datetime
+from datetime import datetime, timedelta
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse
@@ -85,7 +85,7 @@ def parse_time(raw: str, hong_kong: bool) -> tuple[str | None, str | None, bool]
     start = datetime.combine(base.date(), start_time, zone)
     end = datetime.combine(base.date(), end_time, zone)
     if end <= start:
-        end = end.replace(day=end.day + 1)
+        end = end + timedelta(days=1)
     return start.isoformat(), end.isoformat(), False
 
 
