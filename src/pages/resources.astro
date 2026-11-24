@@ -1,0 +1,103 @@
+---
+import '@fontsource-variable/fraunces';
+import '@fontsource-variable/source-sans-3';
+import '@fontsource/oswald/500.css';
+import { getCollection } from 'astro:content';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import Head from '../components/Head.astro';
+import ResourceRow from '../components/ResourceRow.astro';
+import '../styles/tokens.css';
+import '../styles/global.css';
+
+const types = ['Newsletter', 'Magazine', 'Guide', 'Checklist', 'Form', 'Report'];
+const topics = ['Health and wellbeing', 'Membership', 'Events', 'Business', 'Community', 'Volunteering'];
+const dateValue = (value?: string) => value ? value.replaceAll('-', '') : '';
+const resources = (await getCollection('resources')).sort((a, b) => {
+  const dated = dateValue(b.data.date).localeCompare(dateValue(a.data.date));
+  if (dated) return dated;
+  const ordered = (a.data.order ?? Number.MAX_SAFE_INTEGER) - (b.data.order ?? Number.MAX_SAFE_INTEGER);
+  return ordered || a.data.title.localeCompare(b.data.title, 'en-AU');
+});
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <Head title="Resources · EmpowHER Sydney" description="Find EmpowHER magazines, guides, checklists, forms and other useful documents." />
+  </head>
+  <body>
+    <Header primaryJoin={false} />
+    <main>
+      <header class="section page-intro stack">
+        <span class="eyebrow label">Downloads and reading</span>
+        <h1>Resources</h1>
+        <p class="lede">Find magazines, guides, checklists and other useful documents from EmpowHER and trusted organisations.</p>
+      </header>
+      <section class="section resource-library" aria-label="Resource library">
+        <noscript><style>.resource-tools { display: none; }</style></noscript>
+        <form class="resource-tools" data-resource-filters>
+          <label><span class="label">Type</span><select name="type"><option value="">All types</option>{types.map((type) => <option value={type}>{type}</option>)}</select></label>
+          <label><span class="label">Topic</span><select name="topic"><option value="">All topics</option>{topics.map((topic) => <option value={topic}>{topic}</option>)}</select></label>
+          <label><span class="label">Sort by</span><select name="sort"><option value="newest">Newest first</option><option value="title">Title A–Z</option></select></label>
+          <p class="resource-count" aria-live="polite" data-resource-count>{resources.length} resources</p>
+        </form>
+        <ol class="resource-list" data-resource-list>
+          {resources.map((resource) => <ResourceRow resource={resource} />)}
+        </ol>
+        <div class="resource-empty" data-resource-empty hidden>
+          <p>No resources match these filters.</p>
+          <button class="text-link" type="button" data-clear-filters>Clear filters</button>
+        </div>
+      </section>
+    </main>
+    <Footer />
+    <script>
+      const form = document.querySelector('[data-resource-filters]');
+      const list = document.querySelector('[data-resource-list]');
+      const count = document.querySelector('[data-resource-count]');
+      const empty = document.querySelector('[data-resource-empty]');
+      const clear = document.querySelector('[data-clear-filters]');
+      if (form instanceof HTMLFormElement && list && count && empty instanceof HTMLElement && clear instanceof HTMLButtonElement) {
+        const rows = Array.from(list.querySelectorAll<HTMLElement>('[data-resource-row]'));
+        const typeSelect = form.elements.namedItem('type');
+        const topicSelect = form.elements.namedItem('topic');
+        const sortSelect = form.elements.namedItem('sort');
+        if (typeSelect instanceof HTMLSelectElement && topicSelect instanceof HTMLSelectElement && sortSelect instanceof HTMLSelectElement) {
+          const params = new URLSearchParams(window.location.search);
+          if ([...typeSelect.options].some((option) => option.value === params.get('type'))) typeSelect.value = params.get('type') ?? '';
+          if ([...topicSelect.options].some((option) => option.value === params.get('topic'))) topicSelect.value = params.get('topic') ?? '';
+          if (params.get('sort') === 'title') sortSelect.value = 'title';
+
+          const update = () => {
+            const visible = rows.filter((row) => {
+              const matches = (!typeSelect.value || row.dataset.type === typeSelect.value)
+                && (!topicSelect.value || (row.dataset.topics ?? '').split('|').includes(topicSelect.value));
+              row.hidden = !matches;
+              return matches;
+            });
+            const sorted = [...rows].sort((left, right) => {
+              const a = left.dataset;
+              const b = right.dataset;
+              if (sortSelect.value === 'title') return (a.title ?? '').localeCompare(b.title ?? '', 'en-AU');
+              const byDate = (b.date ?? '').localeCompare(a.date ?? '');
+              const byOrder = Number(a.order || 9007199254740991) - Number(b.order || 9007199254740991);
+              return byDate || byOrder || (a.title ?? '').localeCompare(b.title ?? '', 'en-AU');
+            });
+            sorted.forEach((row) => list.append(row));
+            count.textContent = `${visible.length} ${visible.length === 1 ? 'resource' : 'resources'}`;
+            empty.hidden = visible.length !== 0;
+            const nextParams = new URLSearchParams();
+            if (typeSelect.value) nextParams.set('type', typeSelect.value);
+            if (topicSelect.value) nextParams.set('topic', topicSelect.value);
+            if (sortSelect.value === 'title') nextParams.set('sort', 'title');
+            const query = nextParams.toString();
+            history.replaceState(null, '', `${window.location.pathname}${query ? `?${query}` : ''}`);
+          };
+          form.addEventListener('change', update);
+          clear.addEventListener('click', () => { form.reset(); update(); typeSelect.focus(); });
+          update();
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -63,6 +63,8 @@
   --issue-width: 190px;
   --member-phone-width: 132px;
   --event-date-phone-width: 64px;
+  --resource-cover-width: 120px;
+  --resource-cover-phone-width: 88px;
   --page-max: 1280px;
   --measure: 65ch;
   --target-min: 44px;

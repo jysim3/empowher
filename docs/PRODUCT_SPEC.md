@@ -19,6 +19,7 @@ The public site is useful without an account. Until a later-phase replacement is
 - **Blog (built)**: all 11 captured posts, a newest-first post list, six category pages, and per-post tag labels.
 - **EmpowHER Women (built)**: directory and individual profiles for the six featured women, with public contact and business details from their current profiles.
 - **Magazine (built)**: issue shelf and reading links for the existing digital issues, plus the announced next issue date.
+- **Resources (built)**: one filterable library for EmpowHER magazines and future hosted downloads, plus selected guides and checklists from trusted organisations.
 - **Organisation (built)**: About, committee/Our Team, speakers, sponsors, FAQ, contact, help hotline, women's health and get involved.
 - **Programmes and campaigns (built)**: Coffee Meetup, Dress 4 Success, Empowering Wellness Expo, R U OK? Day in Sydney and Hong Kong, Small Business Showcase, Women's Health and Wellness Day, Biggest Morning Tea, and their captured photo galleries.
 - **Membership (built)**: explain Bronze, Silver and Gold · Biz plans and every current benefit; Join links to Wix checkout.

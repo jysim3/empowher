@@ -3,8 +3,8 @@ html { background: var(--color-ground); color: var(--color-ink); scroll-behavior
 body { margin: 0; overflow-x: hidden; font-family: var(--font-body); font-size: var(--font-size-body); font-weight: var(--weight-regular); line-height: var(--line-body); }
 img { display: block; width: 100%; height: auto; object-fit: cover; }
 a { color: var(--color-link); text-decoration: none; }
-button, input { font: inherit; }
-a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible { outline: var(--underline) solid var(--color-primary); outline-offset: var(--focus-offset); }
+button, input, select { font: inherit; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-visible { outline: var(--underline) solid var(--color-primary); outline-offset: var(--focus-offset); }
 h1, h2, h3, p, figure, blockquote { margin: 0; }
 h1, h2, h3 { font-family: var(--font-display); font-weight: var(--weight-regular); text-wrap: balance; }
 h1 { font-size: var(--font-size-display); line-height: var(--line-display); letter-spacing: calc(var(--tracking-label) * -0.4); }
@@ -229,6 +229,28 @@ blockquote cite { color: var(--color-primary); font-style: normal; }
 .photo-grid img { width: 100%; height: auto; object-fit: contain; }
 .not-found { padding-top: var(--space-6); }
 .not-found-links { display: flex; flex-wrap: wrap; gap: var(--space-6); }
+.resource-tools { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) auto; gap: var(--space-gutter); align-items: end; margin-bottom: var(--space-8); }
+.resource-tools label { display: grid; gap: var(--space-2); }
+.resource-tools select { width: 100%; min-height: var(--target-min); border: var(--rule) solid var(--color-line-strong); border-radius: 0; padding: var(--space-2); color: var(--color-ink); background: var(--color-surface); }
+.resource-count { color: var(--color-ink-muted); white-space: nowrap; padding-bottom: var(--space-2); }
+.resource-list { list-style: none; border-top: var(--rule) solid var(--color-line-strong); }
+/* The hidden attribute must win over component display rules (filters rely on it). */
+[hidden] { display: none !important; }
+.resource-row { display: grid; grid-template-columns: var(--resource-cover-width) minmax(0, 1fr) auto; gap: var(--space-gutter); align-items: center; padding: var(--space-6) 0; border-bottom: var(--rule) solid var(--color-line); }
+.resource-cover-link { align-self: start; width: calc(100% - var(--cover-offset)); }
+.resource-cover { display: grid; width: 100%; aspect-ratio: var(--cover-ratio); background: var(--color-surface); box-shadow: var(--cover-offset) var(--cover-offset) 0 var(--color-cover-shadow); }
+.resource-cover img { width: 100%; height: 100%; object-fit: contain; }
+.resource-cover-placeholder { place-items: center; border: var(--rule) solid var(--color-line); text-align: center; padding: var(--space-2); }
+.resource-copy { min-width: 0; display: grid; gap: var(--space-2); }
+.resource-kicker { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-4); align-items: baseline; }
+.resource-kicker time, .resource-copy > p, .resource-meta { color: var(--color-ink-muted); }
+.resource-copy h2 { font-size: var(--font-size-title); line-height: var(--line-title); }
+.resource-copy h2 a { border-bottom: var(--underline) solid transparent; }
+.resource-copy h2 a:hover { border-bottom-color: var(--color-primary); }
+.resource-meta { font-size: var(--font-size-small); }
+.resource-action { justify-self: end; white-space: nowrap; }
+.resource-empty { border-top: var(--rule) solid var(--color-line-strong); padding-top: var(--space-4); }
+.resource-empty p { margin-bottom: var(--space-3); }
 
 @media (max-width: 74.999rem) {
   .desktop-nav { display: none; }
@@ -295,6 +317,10 @@ blockquote cite { color: var(--color-primary); font-style: normal; }
   .photo-grid { columns: 3; column-gap: var(--space-3); }
   .photo-grid li { margin-bottom: var(--space-3); }
   .program-list article { grid-template-columns: 1fr; align-items: start; }
+  .resource-tools { grid-template-columns: 1fr; gap: var(--space-4); }
+  .resource-count { padding-bottom: 0; }
+  .resource-row { grid-template-columns: var(--resource-cover-phone-width) minmax(0, 1fr); gap: var(--space-4); align-items: start; }
+  .resource-action { grid-column: 2; justify-self: start; }
 }
 
 @media (max-width: 39.999rem) {

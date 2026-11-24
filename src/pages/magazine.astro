@@ -7,6 +7,7 @@ import { getCollection } from 'astro:content';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Head from '../components/Head.astro';
+import { withBase } from '../lib/url';
 import '../styles/tokens.css';
 import '../styles/global.css';
 
@@ -30,6 +31,7 @@ const formatMonth = (month: string) => {
         <h1 id="magazine-page-title">EmpowHER Magazine</h1>
         <p class="lede">Packed with inspiration, real stories, and practical tools designed to empower you in both your personal and professional life. Discover holistic wellness and self-care, career and small business strategies, community highlights and inspirational features.</p>
         <p><strong>The digital edition is completely free</strong></p>
+        <p><a class="text-link" href={withBase('/resources')}>Browse all resources</a></p>
       </section>
 
       <section class="section" aria-labelledby="issues-title">
