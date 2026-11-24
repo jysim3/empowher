@@ -77,7 +77,7 @@ Publish pages and screenshot reports with `~/Documents/reports/publish-page.sh e
 
 ## Project overview
 
-This is one public, user-facing Astro 7 static site using strict TypeScript, loader content collections and plain Astro components/CSS. Wix handles transactions. GitHub Pages continuous deployment on merge to `main` is planned but not configured.
+This is one public, user-facing Astro 7 static site using strict TypeScript, loader content collections and plain Astro components/CSS. Wix handles transactions. Every push to `main` deploys the noindex preview as a GitHub Pages project site at `https://jysim3.github.io/empowher/`; root-local builds remain supported.
 
 ## Commands
 

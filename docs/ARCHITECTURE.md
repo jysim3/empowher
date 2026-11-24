@@ -58,7 +58,11 @@ PATH=$HOME/.nvm/versions/node/v22.23.5/bin:$PATH npm run preview
 PATH=$HOME/.nvm/versions/node/v22.23.5/bin:$PATH npm run validate
 ```
 
-`validate` checks types/content, produces `dist/`, and runs `scripts/check-links.py` over every root-relative built `href` and `src`. Deployment, domain changes, redirects and production Wix configuration belong to the owner.
+`validate` checks types/content, produces a root-hosted `dist/`, and runs `scripts/check-links.py` over every root-relative built `href` and `src`. `validate:pages` builds with `SITE_URL=https://jysim3.github.io` and `BASE_PATH=/empowher`, then checks that every internal URL carries that exact base. `SITE_URL` defaults to `http://localhost:4321` and `BASE_PATH` to `/`, so local development and a future custom-domain build remain root-hosted.
+
+Routes use directory output and `trailingSlash: 'always'`, producing `route/index.html` so GitHub Pages serves route URLs without redirect-dependent `.html` paths. Components pass internal URLs through `withBase`. Astro 7's installed Sätteri Markdown processor does not accept rehype plugins without an additional package, so a no-dependency `astro:build:done` integration applies the same helper to root-relative `href` and `src` attributes in rendered HTML, including all collection Markdown. Astro's imported-image pipeline emits base-aware asset URLs. The shared head combines the configured site, base and current route for canonical URLs; preview builds default to `noindex, nofollow`, and `public/robots.txt` also disallows crawling until launch.
+
+Pushes to `main` deploy `dist/` to the public GitHub Pages project site at <https://jysim3.github.io/empowher/> through `.github/workflows/deploy-pages.yml`. The preview repository is public. Domain changes, redirects and production Wix configuration remain owner decisions.
 
 ## Captured event import
 

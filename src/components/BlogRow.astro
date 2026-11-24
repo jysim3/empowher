@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { withBase } from '../lib/url';
 
 interface Props { post: CollectionEntry<'posts'>; categoryNames: Record<string, string>; }
 const { post, categoryNames } = Astro.props;
@@ -9,7 +10,7 @@ const part = (type: Intl.DateTimeFormatPartTypes) => parts.find((item) => item.t
 const slug = post.id.replace(/\.md$/, '');
 ---
 <li>
-  <a href={`/blog/${slug}`}>
+  <a href={withBase(`/blog/${slug}`)}>
     <time class="event-date" datetime={date.toISOString()}><span>{part('day')}</span><small>{part('month')} · {part('year')}</small></time>
     <span class="event-copy">
       {post.data.categories[0] && <small class="label eyebrow">{categoryNames[post.data.categories[0]]}</small>}

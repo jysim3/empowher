@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { withBase } from '../lib/url';
 
 interface Props {
   event: CollectionEntry<'events'>;
@@ -21,7 +22,7 @@ const slug = id.replace(/\.md$/, '');
 ---
 
 <li>
-  <a href={`/events/${slug}`}>
+  <a href={withBase(`/events/${slug}`)}>
     {data.start ? (
       <time class="event-date" datetime={data.start.toISOString()}>
         <span>{value('day')}</span>

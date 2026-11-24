@@ -2,7 +2,7 @@
 
 Format: date, decision, why. Newest first. Read before reversing one.
 
-- **2026-11-24 Hosting on hold.** No preview hosting is set up yet; previews are local and on the owner's tailnet. GitHub Pages stays the intended host, but a private repo needs a paid plan and the site would be public either way, so it waits until there are more pages to show the committee.
+- **2026-11-24 GitHub Pages preview hosting.** Publish the preview at <https://jysim3.github.io/empowher/> from every push to `main`, make the repository public so Pages can host it without a paid plan, and mark every preview page `noindex, nofollow` until launch. This replaces the hosting-on-hold decision.
 - **2026-11-24 Sourdough workflow and tracked hooks.** GitHub Issues is the only tracker; workflow phases use labels, session state lives in issue comments, and tracked hooks run validation plus commit-footer checks after the parent activates `.githooks`. UI review uses headless-Chromium screenshots published to the private `empowher` reports archive.
 - **2026-11-24 Main with squash merge (decided without you).** Work branches from `main`, lands through pull requests and squash-merges; continuous GitHub Pages deployment is intended after it is configured.
 - **2026-11-24 Model tiers (decided without you).** Claude Fable 5.2 directs design, Claude Sonnet 5.5 handles fact-finding subagents, and Codex GPT-5.4 via Codex CLI handles implementation, review, evaluation and persona rounds.

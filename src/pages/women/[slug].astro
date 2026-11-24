@@ -6,6 +6,8 @@ import { Image } from 'astro:assets';
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
+import Head from '../../components/Head.astro';
+import { withBase } from '../../lib/url';
 import '../../styles/tokens.css';
 import '../../styles/global.css';
 
@@ -42,18 +44,14 @@ const linkText = (label: string, url: string) => {
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="description" content={`Meet ${data.name}, ${data.profileTitle ?? data.role}, through EmpowHER Sydney.`} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{data.name} · EmpowHER Women</title>
+    <Head title={`${data.name} · EmpowHER Women`} description={`Meet ${data.name}, ${data.profileTitle ?? data.role}, through EmpowHER Sydney.`} />
   </head>
   <body>
     <Header primaryJoin={false} />
     <main>
       <article>
         <header class="section member-profile-heading">
-          <a class="text-link breadcrumb" href="/women">EmpowHER Women</a>
+          <a class="text-link breadcrumb" href={withBase('/women')}>EmpowHER Women</a>
           <div class="stack member-title">
             <span class="eyebrow label">{data.profileTitle ?? data.role}</span>
             <h1>{data.name}</h1>

@@ -6,6 +6,7 @@ import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Head from '../components/Head.astro';
 import '../styles/tokens.css';
 import '../styles/global.css';
 
@@ -19,11 +20,7 @@ const formatMonth = (month: string) => {
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="Read every free digital issue of EmpowHER Magazine." />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>EmpowHER Magazine · EmpowHER Sydney</title>
+    <Head title="EmpowHER Magazine · EmpowHER Sydney" description="Read every free digital issue of EmpowHER Magazine." />
   </head>
   <body>
     <Header primaryJoin={false} />

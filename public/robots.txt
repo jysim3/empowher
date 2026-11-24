@@ -1,0 +1,3 @@
+# Preview deployment: remove this block when the public site launches.
+User-agent: *
+Disallow: /

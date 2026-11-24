@@ -10,6 +10,9 @@ npm run check
 npm run build
 npm run preview
 npm run validate
+npm run validate:pages
 ```
+
+Local builds use `/` by default. `validate:pages` builds the GitHub Pages preview at the `/empowher/` base path and checks every internal link. Pushes to `main` deploy that preview to <https://jysim3.github.io/empowher/> through GitHub Actions.
 
 See `docs/PRODUCT_SPEC.md`, `docs/ARCHITECTURE.md`, `docs/DECISIONS.md`, and the binding `docs/DESIGN.md`.
