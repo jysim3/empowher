@@ -1,9 +1,10 @@
 ---
 import OrgPage from '../components/OrgPage.astro';
+import { withBase } from '../lib/url';
 ---
 <OrgPage title="Page not found" label="Page not found" description="The requested page could not be found.">
   <section class="section not-found stack">
     <p>We could not find that page. Try one of these places instead.</p>
-    <nav class="not-found-links" aria-label="Helpful links"><a class="text-link" href="/">Home</a><a class="text-link" href="/events">Events</a><a class="text-link" href="/contact">Contact</a></nav>
+    <nav class="not-found-links" aria-label="Helpful links"><a class="text-link" href={withBase('/')}>Home</a><a class="text-link" href={withBase('/events')}>Events</a><a class="text-link" href={withBase('/contact')}>Contact</a></nav>
   </section>
 </OrgPage>

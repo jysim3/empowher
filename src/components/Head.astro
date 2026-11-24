@@ -1,0 +1,16 @@
+---
+import { withBase } from '../lib/url';
+
+interface Props { title: string; description: string; }
+const { title, description } = Astro.props;
+const previewNoindex = !['false', 'off', '0'].includes((import.meta.env.PREVIEW_NOINDEX ?? 'true').toLowerCase());
+// Set PREVIEW_NOINDEX=false when the public site launches and is ready for indexing.
+const canonical = new URL(withBase(Astro.url.pathname), Astro.site);
+---
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="description" content={description} />
+{previewNoindex && <meta name="robots" content="noindex, nofollow" />}
+<link rel="canonical" href={canonical} />
+<link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
+<title>{title}</title>

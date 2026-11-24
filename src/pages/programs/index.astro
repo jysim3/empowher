@@ -1,13 +1,14 @@
 ---
 import { getCollection } from 'astro:content';
 import OrgPage from '../../components/OrgPage.astro';
+import { withBase } from '../../lib/url';
 const programs = (await getCollection('programs')).sort((a, b) => a.data.order - b.data.order);
 ---
 <OrgPage title="Programmes" label="Connect and grow" lede="Explore EmpowHER Sydney’s programmes, workshops and community campaigns.">
   <section class="section program-list" aria-label="EmpowHER programmes">
     {programs.map((program) => <article>
       <div><span class="label eyebrow">{program.data.label}</span><h2>{program.data.title}</h2><p>{program.data.lede}</p></div>
-      <a class="text-link" href={`/programs/${program.id}`}>Read more</a>
+      <a class="text-link" href={withBase(`/programs/${program.id}`)}>Read more</a>
     </article>)}
   </section>
 </OrgPage>

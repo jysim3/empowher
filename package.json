@@ -11,6 +11,7 @@
     "preview": "astro preview",
     "check": "astro check",
     "validate": "astro check && astro build && python3 scripts/check-links.py",
+    "validate:pages": "SITE_URL=https://jysim3.github.io BASE_PATH=/empowher astro build && python3 scripts/check-links.py --base /empowher",
     "reports:index": "python3 scripts/reports-index.py",
     "astro": "astro"
   },

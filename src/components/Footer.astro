@@ -1,15 +1,18 @@
+---
+import { withBase } from '../lib/url';
+---
 <footer class="site-footer">
-  <a class="wordmark" href="/">Empow<i>HER</i></a>
+  <a class="wordmark" href={withBase('/')}>Empow<i>HER</i></a>
   <p>EmpowHER Sydney Inc. · Women supporting women</p>
   <p>© 2026 EmpowHER Sydney Inc.</p>
   <nav class="footer-links" aria-label="Organisation information">
-    <a href="/programs">Programmes</a>
-    <a href="/gallery">Gallery</a>
-    <a href="/committee">Committee</a>
-    <a href="/speakers">Speakers</a>
-    <a href="/faq">FAQ</a>
-    <a href="/hotline">Help hotline</a>
-    <a href="/womens-health">Women's health</a>
-    <a href="/get-involved">Get involved</a>
+    <a href={withBase('/programs')}>Programmes</a>
+    <a href={withBase('/gallery')}>Gallery</a>
+    <a href={withBase('/committee')}>Committee</a>
+    <a href={withBase('/speakers')}>Speakers</a>
+    <a href={withBase('/faq')}>FAQ</a>
+    <a href={withBase('/hotline')}>Help hotline</a>
+    <a href={withBase('/womens-health')}>Women's health</a>
+    <a href={withBase('/get-involved')}>Get involved</a>
   </nav>
 </footer>

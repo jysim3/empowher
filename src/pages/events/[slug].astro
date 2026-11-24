@@ -6,6 +6,8 @@ import { Image } from 'astro:assets';
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
+import Head from '../../components/Head.astro';
+import { withBase } from '../../lib/url';
 import '../../styles/tokens.css';
 import '../../styles/global.css';
 
@@ -39,18 +41,14 @@ const endTime = data.end ? new Intl.DateTimeFormat('en-AU', {
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="description" content={data.summary} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{data.title} · EmpowHER Sydney</title>
+    <Head title={`${data.title} · EmpowHER Sydney`} description={data.summary} />
   </head>
   <body>
     <Header primaryJoin={false} />
     <main>
       <article>
         <header class="section event-hero">
-          <a class="text-link breadcrumb" href="/events">Events</a>
+          <a class="text-link breadcrumb" href={withBase('/events')}>Events</a>
           <div class="event-heading">
             {data.start ? (
               <time class="event-date event-date-large" datetime={data.start.toISOString()}>
@@ -72,7 +70,7 @@ const endTime = data.end ? new Intl.DateTimeFormat('en-AU', {
             {isOpen ? <a class="button" href={data.registrationUrl}>Register on the current site</a> : (
               <div class="event-closed">
                 <p>{data.status === 'cancelled' ? 'Cancelled' : 'Registration is closed'}</p>
-                <a class="text-link" href="/events">See all events</a>
+                <a class="text-link" href={withBase('/events')}>See all events</a>
               </div>
             )}
           </aside>

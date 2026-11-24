@@ -6,6 +6,8 @@ import { getCollection } from 'astro:content';
 import BlogRow from '../../components/BlogRow.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
+import Head from '../../components/Head.astro';
+import { withBase } from '../../lib/url';
 import '../../styles/tokens.css';
 import '../../styles/global.css';
 
@@ -17,12 +19,10 @@ const categoryNames: Record<string, string> = {
 const posts = (await getCollection('posts')).sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf());
 ---
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width" />
-<meta name="description" content="News, ideas and community stories from EmpowHER Sydney." /><link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<title>Blog · EmpowHER Sydney</title></head><body><Header primaryJoin={false} /><main>
+<html lang="en"><head><Head title="Blog · EmpowHER Sydney" description="News, ideas and community stories from EmpowHER Sydney." /></head><body><Header primaryJoin={false} /><main>
   <section class="section page-intro stack" aria-labelledby="blog-title"><span class="eyebrow label">Stories and news</span><h1 id="blog-title">Blog</h1></section>
   <section class="section" aria-label="Blog posts">
-    <nav class="blog-categories" aria-label="Blog categories"><a class="text-link" href="/blog">All posts</a>{Object.entries(categoryNames).map(([slug, name]) => <a class="text-link" href={`/blog/category/${slug}`}>{name}</a>)}</nav>
+    <nav class="blog-categories" aria-label="Blog categories"><a class="text-link" href={withBase('/blog')}>All posts</a>{Object.entries(categoryNames).map(([slug, name]) => <a class="text-link" href={withBase(`/blog/category/${slug}`)}>{name}</a>)}</nav>
     <ol class="events blog-list">{posts.map((post) => <BlogRow post={post} categoryNames={categoryNames} />)}</ol>
   </section>
 </main><Footer /></body></html>
