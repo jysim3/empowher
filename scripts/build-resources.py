@@ -113,6 +113,10 @@ def process(path: Path, check: bool) -> list[str]:
     if not expected:
         return []
     stale = [key for key, value in expected.items() if scalar(lines, key) != str(value)]
+    # A page count the script wrote earlier is wrong once the file is no longer a
+    # PDF (or its pages can no longer be read): drop it rather than show a stale one.
+    obsolete = [key for key in ("pages",) if key not in expected and scalar(lines, key)]
+    stale += [f"obsolete {key}" for key in obsolete]
     existing_cover = scalar(lines, "cover")
     if existing_cover and existing_cover.startswith("../../assets/resources/"):
         cover_path = (path.parent / existing_cover).resolve()
@@ -129,6 +133,7 @@ def process(path: Path, check: bool) -> list[str]:
         render_cover(source, cover_destination)
     for key, value in expected.items():
         lines = set_scalar(lines, key, value)
+    lines = [line for line in lines if not any(line.startswith(f"{key}:") for key in obsolete)]
     path.write_text("---\n" + "\n".join(lines) + "\n---" + body, encoding="utf-8")
     return [f"updated {path.relative_to(ROOT)}"]
 
