@@ -5,6 +5,10 @@ import { z } from "astro/zod";
 const isoDateTime = z.coerce.date();
 const webUrl = z.url();
 const issueMonth = z.string().regex(/^\d{4}-(0[1-9]|1[0-2])$/);
+const resourceDate = z.preprocess(
+  (value) => value instanceof Date ? value.toISOString().slice(0, 10) : value,
+  z.string().regex(/^\d{4}-(0[1-9]|1[0-2])(?:-(0[1-9]|[12]\d|3[01]))?$/),
+);
 
 const events = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/events" }),
@@ -90,6 +94,41 @@ const issues = defineCollection({
         issuuUrl: webUrl,
       })
       .strict(),
+});
+
+const resources = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/resources" }),
+  schema: ({ image }) =>
+    z
+      .object({
+        title: z.string().min(1),
+        type: z.enum(["Newsletter", "Magazine", "Guide", "Checklist", "Form", "Report"]),
+        topics: z.array(z.enum(["Health and wellbeing", "Membership", "Events", "Business", "Community", "Volunteering"])).min(1),
+        date: resourceDate.optional(),
+        summary: z.string().min(1),
+        file: z.string().regex(/^downloads\/[A-Za-z0-9_-][A-Za-z0-9._/-]*$/).optional(),
+        externalUrl: webUrl.optional(),
+        externalLabel: z.enum(["Read online", "Visit"]).optional(),
+        publisher: z.string().min(1).optional(),
+        cover: image().optional(),
+        coverAlt: z.string().min(1).optional(),
+        fileType: z.string().min(1).optional(),
+        fileSize: z.string().min(1).optional(),
+        pages: z.number().int().positive().optional(),
+        order: z.number().int().optional(),
+      })
+      .strict()
+      .superRefine((resource, context) => {
+        if (Boolean(resource.file) === Boolean(resource.externalUrl)) {
+          context.addIssue({ code: "custom", message: "Set exactly one of file or externalUrl" });
+        }
+        if (Boolean(resource.externalUrl) !== Boolean(resource.externalLabel)) {
+          context.addIssue({ code: "custom", message: "externalLabel is required only for external resources" });
+        }
+        if (Boolean(resource.cover) !== Boolean(resource.coverAlt)) {
+          context.addIssue({ code: "custom", message: "cover and coverAlt must be provided together" });
+        }
+      }),
 });
 
 const pages = defineCollection({
@@ -238,6 +277,7 @@ export const collections = {
   members,
   plans,
   issues,
+  resources,
   pages,
   committee,
   speakers,

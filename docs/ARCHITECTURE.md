@@ -14,6 +14,7 @@ Astro 7.4 static output, strict TypeScript and plain Astro components/CSS. Image
 /women/[slug]        Woman profile, built
 /membership          Membership with Wix checkout links, built
 /magazine            Magazine shelf with Issuu reading links, built
+/resources           Filterable document and external-resource library, built
 /blog                 Blog list, built
 /blog/[slug]          Blog post, built
 /blog/category/[slug] Blog category list, built
@@ -36,6 +37,7 @@ This is a single-tenant site. Astro's loader-based content collections are defin
 | `members` | Markdown | Name, role/business, optional portrait/banner, image sources and alt text, optional contact fields and links, home feature flag/order; body profile | Committee through the later editing screen |
 | `plans` | JSON | Name, numeric yearly price, short home summary, full description, short home benefits, full membership-page benefits, checkout URL, order | Committee through the later editing screen |
 | `issues` | JSON | Title, issue number, optional confirmed month, cover, Issuu URL | Committee through the later editing screen |
+| `resources` | Markdown | Title, type, topics, optional date, summary, exactly one hosted file or external URL, action metadata, optional publisher/cover/file metadata/order | Committee through direct repository editing |
 | `pages` | Markdown | Title, lede, source URL and optional image; body long-form copy | Imported from the captured public site |
 | `committee`, `speakers` | Markdown | Name, role/title, order and optional portrait metadata; speaker body biography | Imported from the captured public site |
 | `sponsors` | Markdown | Name, tier/order and optional logo/link metadata | Imported from the captured public site |
@@ -45,6 +47,8 @@ This is a single-tenant site. Astro's loader-based content collections are defin
 | `galleries` | Markdown | Title, optional source-stated date, order, source URLs and photo source/local/alt metadata | Imported from the captured public site |
 
 `src/data/site.ts` is a typed singleton for site-wide and home-page copy that is not a repeatable content item, including navigation, hero, highlights, cover lines and quote. All content is public and build-time only. Direct repository editing is the current path; the later editor will write these same files through external authentication and trigger a rebuild.
+
+Hosted resource files live in `public/downloads/`. `python3 scripts/build-resources.py` validates those files, refreshes their type, size and page metadata, and generates a first-page cover when PDF tools are available. Its `--check` mode reports stale metadata without changing files.
 
 ## Local development
 

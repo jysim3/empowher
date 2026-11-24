@@ -1,0 +1,52 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import { withBase } from '../lib/url';
+
+interface Props { resource: CollectionEntry<'resources'>; }
+const { resource } = Astro.props;
+const { data } = resource;
+const target = data.file ? withBase(`/${data.file}`) : data.externalUrl!;
+const action = data.file ? 'Download' : data.externalLabel!;
+const dateLabel = data.date && (() => {
+  const [year, month, day] = data.date.split('-').map(Number);
+  return new Intl.DateTimeFormat('en-AU', {
+    day: day ? 'numeric' : undefined,
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  }).format(new Date(Date.UTC(year, month - 1, day || 1)));
+})();
+const meta = data.file
+  ? [data.fileType, data.fileSize, data.pages && `${data.pages} ${data.pages === 1 ? 'page' : 'pages'}`].filter(Boolean)
+  : [data.publisher && `Published by ${data.publisher}`, action === 'Read online' ? 'Opens on Issuu' : 'Opens on another site'].filter(Boolean);
+---
+<li
+  class="resource-row"
+  data-resource-row
+  data-type={data.type}
+  data-topics={data.topics.join('|')}
+  data-date={data.date ?? ''}
+  data-title={data.title.toLocaleLowerCase('en-AU')}
+  data-order={data.order ?? ''}
+>
+  <a class="resource-cover-link" href={target} rel={data.externalUrl ? 'noopener' : undefined} download={data.file ? '' : undefined} aria-label={`${action}: ${data.title}`}>
+    {data.cover ? (
+      <span class="resource-cover"><Image src={data.cover} alt={data.coverAlt!} widths={[176, 240]} sizes="(max-width: 56.249rem) 88px, 120px" /></span>
+    ) : (
+      <span class="resource-cover resource-cover-placeholder" aria-hidden="true"><span class="label">{data.fileType ?? data.type}</span></span>
+    )}
+  </a>
+  <div class="resource-copy">
+    <div class="resource-kicker">
+      <span class="label eyebrow">{data.type}</span>
+      {dateLabel && <time datetime={data.date}>{dateLabel}</time>}
+    </div>
+    <h2><a href={target} rel={data.externalUrl ? 'noopener' : undefined} download={data.file ? '' : undefined}>{data.title}</a></h2>
+    <p>{data.summary}</p>
+    <p class="resource-meta">{meta.join(' · ')}</p>
+  </div>
+  <a class="text-link resource-action" href={target} rel={data.externalUrl ? 'noopener' : undefined} download={data.file ? '' : undefined}>
+    {action}{data.file && <span aria-hidden="true"> ↓</span>}
+  </a>
+</li>
